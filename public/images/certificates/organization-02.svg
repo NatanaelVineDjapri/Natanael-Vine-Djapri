@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1160" width="900" height="1160" role="img" aria-label="Kepanitiaan">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101014"/>
+      <stop offset="1" stop-color="#0b0b0e"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="1160" fill="url(#g)"/>
+  <rect x="34.5" y="34.5" width="831" height="1091" fill="none" stroke="#ece9e4" stroke-opacity="0.28"/>
+  <rect x="48.5" y="48.5" width="803" height="1063" fill="none" stroke="#ece9e4" stroke-opacity="0.12"/>
+
+  <text x="450" y="150" text-anchor="middle" font-family="ui-monospace, monospace" font-size="19" letter-spacing="7" fill="#ece9e4" fill-opacity="0.55">PENGHARGAAN</text>
+  <line x1="390" y1="180" x2="510" y2="180" stroke="#ece9e4" stroke-opacity="0.4"/>
+
+  <text x="450" y="252" text-anchor="middle" font-family="Georgia, serif" font-size="52" fill="#ece9e4" fill-opacity="0.92">Kepanitiaan</text>
+
+  <line x1="310.2" y1="340" x2="589.8" y2="340" stroke="#ece9e4" stroke-opacity="0.131"/>
+  <line x1="228.0" y1="351" x2="672.0" y2="351" stroke="#ece9e4" stroke-opacity="0.090"/>
+  <line x1="352.9" y1="362" x2="547.1" y2="362" stroke="#ece9e4" stroke-opacity="0.204"/>
+  <line x1="317.6" y1="373" x2="582.4" y2="373" stroke="#ece9e4" stroke-opacity="0.064"/>
+  <line x1="247.6" y1="384" x2="652.4" y2="384" stroke="#ece9e4" stroke-opacity="0.146"/>
+  <line x1="322.7" y1="395" x2="577.3" y2="395" stroke="#ece9e4" stroke-opacity="0.184"/>
+  <line x1="347.9" y1="406" x2="552.1" y2="406" stroke="#ece9e4" stroke-opacity="0.191"/>
+  <line x1="302.1" y1="417" x2="597.9" y2="417" stroke="#ece9e4" stroke-opacity="0.209"/>
+  <line x1="175.9" y1="428" x2="724.1" y2="428" stroke="#ece9e4" stroke-opacity="0.126"/>
+  <line x1="286.1" y1="439" x2="613.9" y2="439" stroke="#ece9e4" stroke-opacity="0.072"/>
+  <line x1="202.7" y1="450" x2="697.3" y2="450" stroke="#ece9e4" stroke-opacity="0.110"/>
+  <line x1="301.9" y1="461" x2="598.1" y2="461" stroke="#ece9e4" stroke-opacity="0.070"/>
+  <line x1="193.2" y1="472" x2="706.8" y2="472" stroke="#ece9e4" stroke-opacity="0.233"/>
+  <line x1="333.7" y1="483" x2="566.3" y2="483" stroke="#ece9e4" stroke-opacity="0.061"/>
+  <line x1="224.5" y1="494" x2="675.5" y2="494" stroke="#ece9e4" stroke-opacity="0.159"/>
+  <line x1="224.6" y1="505" x2="675.4" y2="505" stroke="#ece9e4" stroke-opacity="0.143"/>
+  <line x1="186.6" y1="516" x2="713.4" y2="516" stroke="#ece9e4" stroke-opacity="0.061"/>
+  <line x1="243.1" y1="527" x2="656.9" y2="527" stroke="#ece9e4" stroke-opacity="0.150"/>
+  <line x1="360.0" y1="538" x2="540.0" y2="538" stroke="#ece9e4" stroke-opacity="0.109"/>
+  <line x1="327.2" y1="549" x2="572.8" y2="549" stroke="#ece9e4" stroke-opacity="0.136"/>
+  <line x1="302.5" y1="560" x2="597.5" y2="560" stroke="#ece9e4" stroke-opacity="0.198"/>
+  <line x1="343.4" y1="571" x2="556.6" y2="571" stroke="#ece9e4" stroke-opacity="0.081"/>
+  <line x1="256.3" y1="582" x2="643.7" y2="582" stroke="#ece9e4" stroke-opacity="0.081"/>
+  <line x1="228.2" y1="593" x2="671.8" y2="593" stroke="#ece9e4" stroke-opacity="0.088"/>
+  <line x1="312.3" y1="604" x2="587.7" y2="604" stroke="#ece9e4" stroke-opacity="0.108"/>
+  <line x1="355.5" y1="615" x2="544.5" y2="615" stroke="#ece9e4" stroke-opacity="0.214"/>
+
+  <circle cx="450" cy="830" r="54" fill="none" stroke="#ece9e4" stroke-opacity="0.5"/>
+  <circle cx="450" cy="830" r="43" fill="none" stroke="#ece9e4" stroke-opacity="0.28"/>
+  <text x="450" y="839" text-anchor="middle" font-family="Georgia, serif" font-size="27" fill="#ece9e4" fill-opacity="0.72">NVD</text>
+
+  <text x="450" y="960" text-anchor="middle" font-family="Georgia, serif" font-size="34" fill="#ece9e4" fill-opacity="0.88">Natanael Vine Djapri</text>
+  <line x1="260" y1="990" x2="640" y2="990" stroke="#ece9e4" stroke-opacity="0.32"/>
+  <text x="450" y="1022" text-anchor="middle" font-family="ui-monospace, monospace" font-size="15" letter-spacing="4" fill="#ece9e4" fill-opacity="0.42">PEMEGANG SERTIFIKAT</text>
+
+  <text x="450" y="1090" text-anchor="middle" font-family="ui-monospace, monospace" font-size="13" letter-spacing="3" fill="#ece9e4" fill-opacity="0.3">GANTI BERKAS INI DENGAN PINDAIAN ASLI</text>
+</svg>
