@@ -44,7 +44,11 @@ export default function TextReveal({
       {words.map((word, index) => (
         <span
           key={`${word}-${index}`}
-          className="mr-[0.26em] inline-block overflow-hidden align-bottom"
+          // pb/-mb cancel each other out for layout, but the padding still
+          // pushes the overflow-hidden clip edge down, giving descenders
+          // (the tails on j, p, y, g — especially in italic type) room to
+          // show instead of getting cut off by a tight parent line-height.
+          className="mr-[0.26em] -mb-[0.22em] inline-block overflow-hidden pb-[0.22em] align-bottom"
         >
           <motion.span
             className={cn("inline-block will-change-transform", wordClassName)}

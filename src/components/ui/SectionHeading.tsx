@@ -20,8 +20,8 @@ export default function SectionHeading({
       <div className="lg:col-span-4">
         <Reveal>
           <div className="flex items-center gap-4">
-            <span className="eyebrow">{index}</span>
-            <span className="bg-line h-px w-10" />
+            {/* <span className="eyebrow">{index}</span> */}
+            {/* <span className="bg-line h-px w-10" /> */}
             <span className="eyebrow">{label}</span>
           </div>
         </Reveal>

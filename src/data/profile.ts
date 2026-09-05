@@ -16,9 +16,12 @@ export const profile: Profile = {
   timezone: "GMT+7",
   email: "natanaelvinedj@gmail.com",
   phone: "+62 813-8799-8816",
-  // Two different photos, on purpose: the About section gets the formal
-  // headshot, the lanyard badge gets the gym photo, kept in full color.
-  photoHome: "/images/profile.jpg",
+  // Two different photos and two different treatments: the About section
+  // zooms in tight on the face from a wide meeting-room shot and
+  // desaturates it, the lanyard badge shows a separate photo fully
+  // uncropped in color. profile.jpg (the old CV thumbnail) was only
+  // 144x192px and looked pixelated at any real size.
+  photoHome: "/images/PIC2.jpeg",
   photoLanyard: "/images/PIC1.jpeg",
   available: "Open To Internship & Entry Level Jobs",
   intro:
@@ -26,9 +29,11 @@ export const profile: Profile = {
 
     
   bio: [
-    "Saya mahasiswa tahun kedua Fakultas Teknologi Informasi, jurusan Teknik Informatika di Universitas Tarumanagara, dengan IPK kumulatif 3.98 dari 4.00 dan target kelulusan Agustus 2028.",
-    "Sehari-hari saya membangun sistem fullstack: dari REST API dan integrasi basis data di sisi belakang, sampai antarmuka yang rapi di sisi depan. Laravel, Next.js, dan PostgreSQL adalah alat yang paling sering saya pakai.",
-    "Di luar kuliah saya bekerja sebagai Student Assistant di Kantor Penjaminan Mutu dan Audit Universitas Tarumanagara, serta aktif di organisasi kemahasiswaan. Kombinasi itu melatih komunikasi, tanggung jawab, dan kolaborasi saya.",
+    "My name is Natanael Vine Djapri, an undergraduate Informatics Engineering student at Tarumanagara University. I have a strong interest in full-stack development, and artificial intelligenceBE, especially in developing practical digital solutions for real-world problems.",
+
+    "My experience comes mainly from academic and personal projects, where I have worked on full-stack applications, educational technology, and business digitalization. I particularly enjoy developing practical applications while exploring how AI can be integrated to create smarter and more useful solutions.",
+
+    "I’m always looking to improve my technical skills and learn new technologies. My goal is to grow as a software engineer and contribute to projects that create meaningful and practical solutions",
   ],
   resumeUrl: "/resume/natanael-vine-djapri-cv.pdf",
   socials: [

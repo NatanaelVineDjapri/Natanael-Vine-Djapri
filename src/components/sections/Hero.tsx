@@ -66,7 +66,6 @@ export default function Hero() {
             <span>{profile.location}</span>
             <span className="hidden md:inline">{profile.timezone}</span>
             <span>{profile.role}</span>
-            <span className="hidden lg:inline">Gulir untuk lanjut</span>
           </div>
         </Reveal>
       </Container>

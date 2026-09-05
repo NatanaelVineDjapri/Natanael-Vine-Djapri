@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import Grain from "@/components/chrome/Grain";
 import Cursor from "@/components/chrome/Cursor";
 import ScrollProgress from "@/components/chrome/ScrollProgress";
+import SocialRail from "@/components/chrome/SocialRail";
 import { profile } from "@/data/profile";
 import "./globals.css";
 
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <Grain />
         <Cursor />
         <ScrollProgress />
+        <SocialRail />
         <SmoothScroll>
           <Navbar />
           <main id="konten">{children}</main>
