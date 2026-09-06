@@ -6,9 +6,9 @@ import Reveal from "@/components/motion/Reveal";
 import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Arsip Karya",
+  title: "Project Archive",
   description:
-    "Kumpulan proyek rekayasa antarmuka dan produk digital oleh Natanael Vine Djapri.",
+    "A collection of interface engineering and digital product projects by Natanael Vine Djapri.",
 };
 
 export default function ProjectsPage() {
@@ -16,16 +16,16 @@ export default function ProjectsPage() {
     <div className="pt-[72px]">
       <Container className="py-24 md:py-32">
         <div className="flex items-center gap-4">
-          <span className="eyebrow">Arsip</span>
+          <span className="eyebrow">Archive</span>
           <span className="bg-line h-px w-10" />
-          <span className="eyebrow">{projects.length} proyek</span>
+          <span className="eyebrow">{projects.length} projects</span>
         </div>
 
         <h1 className="mt-10 text-[clamp(2.75rem,8vw,7rem)] leading-[0.95]">
-          <TextReveal as="span" text="Seluruh" className="block" />
+          <TextReveal as="span" text="All" className="block" />
           <TextReveal
             as="span"
-            text="karya."
+            text="projects."
             className="text-mute-2 block italic"
             delay={0.08}
           />

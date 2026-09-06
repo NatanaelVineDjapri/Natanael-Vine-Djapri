@@ -6,7 +6,7 @@ export const expertise: ExpertiseGroup[] = [
     id: "software",
     title: "Software Engineering",
     description:
-      "Membangun aplikasi web fullstack, dari perancangan REST API dan basis data sampai antarmuka yang dipakai pengguna akhir.",
+      "Building fullstack web applications, from designing REST APIs and databases to the interfaces end users interact with.",
     items: [
       "TypeScript",
       "JavaScript",
@@ -26,7 +26,7 @@ export const expertise: ExpertiseGroup[] = [
     id: "ai-data",
     title: "AI & Data",
     description:
-      "Mengolah data dan membangun model, termasuk layanan proctoring berbasis computer vision pada proyek CBT Akademis AI.",
+      "Processing data and building models, including a computer-vision-based proctoring service for the CBT Akademis AI project.",
     items: [
       "Python",
       "NumPy",
@@ -41,19 +41,19 @@ export const expertise: ExpertiseGroup[] = [
     id: "interpersonal",
     title: "Interpersonal",
     description:
-      "Diasah lewat peran asisten kantor penjaminan mutu dan dua organisasi kemahasiswaan yang menuntut koordinasi lintas pihak.",
+      "Sharpened through a role as a quality assurance office assistant and two student organizations that demanded cross-team coordination.",
     items: [
       "Adaptability",
-      "Komunikasi",
-      "Tanggung jawab",
-      "Berpikir kritis",
-      "Kolaborasi",
-      "Fleksibilitas",
+      "Communication",
+      "Responsibility",
+      "Critical Thinking",
+      "Collaboration",
+      "Flexibility",
     ],
   },
 ];
 
-/** Relevant coursework, shown as a secondary list under Keahlian. */
+/** Relevant coursework, shown as a secondary list under Skills. */
 export const coursework: string[] = [
   "Data Structures & Algorithms",
   "Database Systems",

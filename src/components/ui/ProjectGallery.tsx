@@ -2,9 +2,18 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
+import { cn } from "@/lib/utils";
+import CoverPlaceholder from "./CoverPlaceholder";
 
-/** Full-bleed image slider for the project detail page, one photo at a time. */
+const SLIDE = 60; // % of container width taken by the active slide
+const GAP = 2; // % gap between slides
+const STEP = SLIDE + GAP;
+
+/**
+ * Coverflow-style slider for the project detail page: the active photo sits
+ * centered and full-height, with the previous/next photos peeking in at the
+ * edges (dimmed, faded into the background) as a hint that there's more.
+ */
 export default function ProjectGallery({
   images,
   alt,
@@ -14,33 +23,69 @@ export default function ProjectGallery({
 }) {
   const [index, setIndex] = useState(0);
   const hasMultiple = images.length > 1;
+  const length = images.length;
+
+  if (length === 0) {
+    return (
+      <div className="border-line aspect-[16/9] w-full overflow-hidden border">
+        <CoverPlaceholder />
+      </div>
+    );
+  }
 
   const go = (delta: number) => {
-    setIndex((current) => (current + delta + images.length) % images.length);
+    setIndex((current) => (current + delta + length) % length);
   };
 
+  // Clone the last photo before the first and the first photo after the
+  // last, so there's always something peeking on both sides — even at the
+  // very start or end of the set, instead of a blank edge.
+  const slides = hasMultiple ? [images[length - 1], ...images, images[0]] : images;
+  const displayIndex = hasMultiple ? index + 1 : 0;
+
   return (
-    <div className="border-line bg-ink-2 group relative aspect-[8/5] w-full overflow-hidden border">
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.div
-          key={index}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute inset-0"
+    <div className="group relative">
+      <div className="relative overflow-hidden">
+        <div
+          className="flex transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)]"
+          style={{ transform: `translateX(calc(50% - ${displayIndex * STEP + SLIDE / 2}%))` }}
         >
-          <Image
-            src={images[index]}
-            alt={alt}
-            fill
-            unoptimized
-            priority={index === 0}
-            sizes="100vw"
-            className="object-cover"
-          />
-        </motion.div>
-      </AnimatePresence>
+          {slides.map((src, position) => {
+            const isActive = position === displayIndex;
+            const goTo = () => {
+              if (position === 0) setIndex(length - 1);
+              else if (position === slides.length - 1) setIndex(0);
+              else setIndex(position - 1);
+            };
+            return (
+              <div
+                key={`${src}-${position}`}
+                onClick={() => !isActive && goTo()}
+                style={{ width: `${SLIDE}%`, marginRight: `${GAP}%` }}
+                className={cn(
+                  "border-line bg-ink-2 relative aspect-[16/9] shrink-0 overflow-hidden border transition-opacity duration-500",
+                  isActive ? "opacity-100" : "cursor-pointer opacity-65 hover:opacity-90",
+                )}
+              >
+                <Image
+                  src={src}
+                  alt={alt}
+                  fill
+                  unoptimized
+                  priority={position === displayIndex}
+                  sizes="80vw"
+                  className="object-cover"
+                />
+              </div>
+            );
+          })}
+        </div>
+
+        {/* A thin vignette at the very edge, not a heavy fade — the peeking
+            photos should still read clearly, not look cropped away. */}
+        <div className="from-ink pointer-events-none absolute inset-y-0 left-0 z-10 w-[3%] bg-gradient-to-r to-transparent" />
+        <div className="from-ink pointer-events-none absolute inset-y-0 right-0 z-10 w-[3%] bg-gradient-to-l to-transparent" />
+      </div>
 
       {hasMultiple ? (
         <>
@@ -48,7 +93,7 @@ export default function ProjectGallery({
             type="button"
             onClick={() => go(-1)}
             aria-label="Previous photo"
-            className="bg-ink/60 text-paper hover:bg-ink/85 absolute top-1/2 left-4 flex size-10 -translate-y-1/2 items-center justify-center rounded-full opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100"
+            className="bg-ink/60 text-paper hover:bg-ink/85 absolute top-1/2 left-[8%] z-20 flex size-10 -translate-y-1/2 items-center justify-center rounded-full opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100"
           >
             <svg width="18" height="18" viewBox="0 0 22 22" fill="none" aria-hidden="true">
               <path d="M14 4 6 11l8 7" stroke="currentColor" strokeWidth="1.4" />
@@ -58,26 +103,33 @@ export default function ProjectGallery({
             type="button"
             onClick={() => go(1)}
             aria-label="Next photo"
-            className="bg-ink/60 text-paper hover:bg-ink/85 absolute top-1/2 right-4 flex size-10 -translate-y-1/2 items-center justify-center rounded-full opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100"
+            className="bg-ink/60 text-paper hover:bg-ink/85 absolute top-1/2 right-[8%] z-20 flex size-10 -translate-y-1/2 items-center justify-center rounded-full opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100"
           >
             <svg width="18" height="18" viewBox="0 0 22 22" fill="none" aria-hidden="true">
               <path d="M8 4l8 7-8 7" stroke="currentColor" strokeWidth="1.4" />
             </svg>
           </button>
 
-          <div className="absolute right-0 bottom-4 left-0 flex items-center justify-center gap-2">
-            {images.map((_, dot) => (
-              <button
-                key={dot}
-                type="button"
-                onClick={() => setIndex(dot)}
-                aria-label={`Go to photo ${dot + 1}`}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  dot === index ? "bg-paper w-6" : "bg-paper/40 hover:bg-paper/70 w-1.5"
-                }`}
-              />
-            ))}
-          </div>
+          {images.length <= 12 ? (
+            <div className="mt-5 flex items-center justify-center gap-2">
+              {images.map((_, dot) => (
+                <button
+                  key={dot}
+                  type="button"
+                  onClick={() => setIndex(dot)}
+                  aria-label={`Go to photo ${dot + 1}`}
+                  className={cn(
+                    "h-1.5 rounded-full transition-all duration-300",
+                    dot === index ? "bg-paper w-6" : "bg-paper/30 hover:bg-paper/60 w-1.5",
+                  )}
+                />
+              ))}
+            </div>
+          ) : (
+            <p className="text-mute mt-5 text-center font-mono text-[0.6875rem] tracking-[0.2em]">
+              {String(index + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
+            </p>
+          )}
         </>
       ) : null}
     </div>

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import TechBadge from "./TechBadge";
+import CoverPlaceholder from "./CoverPlaceholder";
 import type { Project } from "@/types";
 
 export default function ProjectCard({ project }: { project: Project }) {
@@ -10,14 +11,18 @@ export default function ProjectCard({ project }: { project: Project }) {
       className="group border-line/70 flex flex-col border-t pt-8"
     >
       <div className="border-line bg-ink-2 relative aspect-[16/10] w-full overflow-hidden border">
-        <Image
-          src={project.cover}
-          alt=""
-          fill
-          unoptimized
-          sizes="(min-width: 1024px) 45vw, 100vw"
-          className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
-        />
+        {project.cover ? (
+          <Image
+            src={project.cover}
+            alt=""
+            fill
+            unoptimized
+            sizes="(min-width: 1024px) 45vw, 100vw"
+            className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
+          />
+        ) : (
+          <CoverPlaceholder />
+        )}
       </div>
 
       <div className="mt-7 flex items-baseline justify-between gap-4">

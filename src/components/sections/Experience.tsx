@@ -25,8 +25,8 @@ export default function Experience() {
       <Container>
         <SectionHeading
           index="06"
-          label="Perjalanan"
-          title="Rekam jejak."
+          label="Journey"
+          title="Track record."
           description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero a pharetra augue mollis."
         />
 

@@ -5,10 +5,8 @@ import { useState } from "react";
 import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/motion/Reveal";
-import { getFeaturedProjects } from "@/data/projects";
+import { projects } from "@/data/projects";
 import { cn } from "@/lib/utils";
-
-const featured = getFeaturedProjects();
 
 export default function FeaturedProjects() {
   const [hovered, setHovered] = useState<string | null>(null);
@@ -25,7 +23,7 @@ export default function FeaturedProjects() {
 
         <div onMouseLeave={() => setHovered(null)} className="relative mt-20">
           <div className="border-line/70 border-t">
-            {featured.map((project, index) => (
+            {projects.map((project, index) => (
               <Reveal key={project.slug} delay={index * 0.06}>
                 <Link
                   href={`/projects/${project.slug}`}
@@ -90,7 +88,7 @@ export default function FeaturedProjects() {
               href="/projects"
               className="text-mute hover:text-paper link-wipe font-mono text-[0.6875rem] tracking-[0.2em] uppercase transition-colors duration-500"
             >
-              Lihat seluruh arsip
+              View full archive
             </Link>
           </div>
         </Reveal>

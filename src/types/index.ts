@@ -43,11 +43,14 @@ export type Project = {
   description: string[];
   stack: string[];
   contributions: string[];
-  cover: string;
+  /** Omit when there's no real screenshot yet — renders a "Not Available" placeholder instead. */
+  cover?: string;
   /** Extra photos for the detail-page gallery. Falls back to just `cover` when omitted. */
   gallery?: string[];
-  repoUrl?: string;
-  liveUrl?: string;
+  /** The three link slots every project card shows — left unset shows as "-". */
+  webUrl?: string;
+  youtubeUrl?: string;
+  docsUrl?: string;
   featured: boolean;
 };
 

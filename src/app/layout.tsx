@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   creator: profile.name,
   openGraph: {
     type: "website",
-    locale: "id_ID",
+    locale: "en_US",
     title: `${profile.name} / ${profile.role}`,
     description: profile.intro,
     siteName: profile.name,
@@ -56,7 +56,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="id"
+      lang="en"
       className={`${sans.variable} ${mono.variable} ${display.variable}`}
       suppressHydrationWarning
     >

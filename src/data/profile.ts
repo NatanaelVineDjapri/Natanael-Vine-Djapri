@@ -11,7 +11,7 @@ export const profile: Profile = {
   lastName: "Vine Djapri",
   initials: "NVD",
   role: "Fullstack Developer",
-  discipline: "Teknik Informatika, Universitas Tarumanagara",
+  discipline: "Informatics Engineering, Tarumanagara University",
   location: "Jakarta, Indonesia",
   timezone: "GMT+7",
   email: "natanaelvinedj@gmail.com",

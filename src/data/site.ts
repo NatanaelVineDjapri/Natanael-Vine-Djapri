@@ -1,13 +1,13 @@
 import type { NavItem } from "@/types";
 
 export const navItems: NavItem[] = [
-  { id: "beranda", label: "Beranda", index: "01" },
-  { id: "tentang", label: "Tentang", index: "02" },
-  { id: "keahlian", label: "Keahlian", index: "03" },
-  { id: "karya", label: "Karya", index: "04" },
-  { id: "sertifikasi", label: "Sertifikasi", index: "05" },
-  { id: "perjalanan", label: "Perjalanan", index: "06" },
-  { id: "kontak", label: "Kontak", index: "07" },
+  { id: "beranda", label: "Home", index: "01" },
+  { id: "tentang", label: "About", index: "02" },
+  { id: "keahlian", label: "Skills", index: "03" },
+  { id: "karya", label: "Projects", index: "04" },
+  { id: "sertifikasi", label: "Certifications", index: "05" },
+  { id: "perjalanan", label: "Journey", index: "06" },
+  { id: "kontak", label: "Contact", index: "07" },
 ];
 
 export const stats = [

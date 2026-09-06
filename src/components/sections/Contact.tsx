@@ -10,14 +10,14 @@ export default function Contact() {
         <div className="flex items-center gap-4">
           <span className="eyebrow">07</span>
           <span className="bg-line h-px w-10" />
-          <span className="eyebrow">Kontak</span>
+          <span className="eyebrow">Contact</span>
         </div>
 
         <h2 className="mt-12 text-[clamp(2.5rem,7vw,6rem)] leading-[1.0]">
-          <TextReveal as="span" text="Mari bicara" className="block" />
+          <TextReveal as="span" text="Let's talk" className="block" />
           <TextReveal
             as="span"
-            text="soal proyek Anda."
+            text="about your project."
             className="text-mute-2 block italic"
             delay={0.08}
           />
@@ -41,7 +41,7 @@ export default function Contact() {
 
         <div className="mt-16 grid gap-12 md:grid-cols-3">
           <Reveal>
-            <p className="eyebrow">Tautan</p>
+            <p className="eyebrow">Links</p>
             <ul className="mt-5 space-y-3">
               {profile.socials.map((social) => (
                 <li key={social.label}>
@@ -60,7 +60,7 @@ export default function Contact() {
           </Reveal>
 
           <Reveal delay={0.08}>
-            <p className="eyebrow">Berbasis di</p>
+            <p className="eyebrow">Based in</p>
             <p className="text-paper-dim mt-5 font-mono text-xs tracking-[0.08em]">
               {profile.location}
             </p>
@@ -70,7 +70,7 @@ export default function Contact() {
           </Reveal>
 
           <Reveal delay={0.16}>
-            <p className="eyebrow">Berkas</p>
+            <p className="eyebrow">Resume</p>
             <a
               href={profile.resumeUrl}
               className="text-paper-dim hover:text-paper link-wipe mt-5 inline-block font-mono text-xs tracking-[0.08em] transition-colors duration-500"

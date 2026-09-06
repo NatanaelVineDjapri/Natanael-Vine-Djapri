@@ -4,38 +4,38 @@ import type { ExperienceItem } from "@/types";
 export const experience: ExperienceItem[] = [
   {
     id: "exp-01",
-    period: "Mar 2025 / Sekarang",
-    role: "Student Assistant, Kantor Penjaminan Mutu dan Audit",
+    period: "Mar 2025 / Present",
+    role: "Student Assistant, Quality Assurance and Audit Office",
     org: "Universitas Tarumanagara",
     location: "Jakarta, Indonesia",
     description:
-      "Menyusun dan memformat standar SPMI untuk tingkat universitas dan fakultas, mengelola serta memperbarui konten situs resmi kantor agar seluruh dokumen penjaminan mutu tetap mutakhir, dan menangani tugas administratif lain dari Kepala Kantor.",
+      "Drafted and formatted SPMI (internal quality assurance) standards at the university and faculty level, managed and updated the office's official website so all quality assurance documents stayed current, and handled other administrative tasks for the Head of Office.",
   },
   {
     id: "exp-02",
-    period: "Des 2024 / Jun 2025",
+    period: "Dec 2024 / Jun 2025",
     role: "Staff of Advocation & Legislation",
     org: "Dewan Perwakilan Mahasiswa FTI UNTAR",
     location: "Jakarta, Indonesia",
     description:
-      "Menerima, mendokumentasikan, menyimpan, dan mengembalikan barang temuan sekaligus membantu mengidentifikasi pemiliknya, serta menjalankan program kerja sesuai tanggung jawab yang diberikan kepada anggota baru.",
+      "Received, documented, stored, and returned lost-and-found items while helping identify their owners, and carried out work programs based on responsibilities assigned to new members.",
   },
   {
     id: "exp-03",
     period: "Nov 2021 / Sep 2023",
-    role: "Ketua Divisi Kerohanian, OSIS",
+    role: "Head of Spiritual Affairs Division, OSIS",
     org: "Student Council",
     location: "Jakarta, Indonesia",
     description:
-      "Menyelenggarakan kegiatan kerohanian seperti persekutuan doa dan perayaan hari besar keagamaan, merancang serta menyebarkan konten digital bertema nilai keagamaan, dan mendorong penerapan nilai tersebut dalam keseharian siswa.",
+      "Organized spiritual activities such as prayer fellowships and religious holiday celebrations, designed and distributed digital content themed around religious values, and encouraged students to apply those values in daily life.",
   },
   {
     id: "exp-04",
     period: "2024 / 2028 (target)",
-    role: "S1 Teknik Informatika, Fakultas Teknologi Informasi",
+    role: "B.S. in Informatics Engineering, Faculty of Information Technology",
     org: "Universitas Tarumanagara",
     location: "Jakarta, Indonesia",
     description:
-      "Program sarjana Teknik Informatika dengan IPK kumulatif 3.98 dari 4.00. Mata kuliah relevan mencakup Struktur Data dan Algoritma, Sistem Basis Data, Rekayasa Perangkat Lunak, Big Data, Sistem Terdistribusi, Machine Learning, dan Kecerdasan Buatan.",
+      "Undergraduate program in Informatics Engineering with a cumulative GPA of 3.98 out of 4.00. Relevant coursework includes Data Structures and Algorithms, Database Systems, Software Engineering, Big Data, Distributed Systems, Machine Learning, and Artificial Intelligence.",
   },
 ];

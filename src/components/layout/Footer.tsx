@@ -11,14 +11,14 @@ export default function Footer() {
           </span>
 
           <span className="hidden md:inline">
-            Dirancang &amp; dibangun sendiri
+            Designed &amp; built by myself
           </span>
 
           <a
             href="#beranda"
             className="hover:text-paper link-wipe self-start transition-colors duration-500 md:self-auto"
           >
-            Kembali ke atas
+            Back to top
           </a>
         </div>
       </Container>

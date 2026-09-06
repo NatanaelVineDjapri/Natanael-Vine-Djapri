@@ -2,72 +2,72 @@ import type { Certification } from "@/types";
 
 /**
  * The categories below follow the ones already published on
- * natanaelportofolio.vercel.app (programming, sekolah, organisasi).
+ * natanaelportofolio.vercel.app (programming, school, organization).
  *
- * PENTING: judul, penerbit, dan tahun di bawah ini masih placeholder, dan
- * gambarnya adalah plat SVG yang dibuat otomatis. Ganti nilai `title`,
- * `issuer`, `year`, `description`, lalu timpa berkas di
- * public/images/certificates/ dengan pindaian sertifikat aslinya.
+ * IMPORTANT: the title, issuer, and year below are still placeholders, and
+ * the images are auto-generated SVG plates. Replace the `title`, `issuer`,
+ * `year`, and `description` values, then overwrite the files in
+ * public/images/certificates/ with scans of the real certificates.
  */
 export const certifications: Certification[] = [
   {
     id: "cert-01",
-    title: "Sertifikat Pemrograman",
-    issuer: "Belum diisi",
+    title: "Programming Certificate",
+    issuer: "Not provided yet",
     year: "2025",
     category: "Programming",
     image: "/images/certificates/programming-01.svg",
     description:
-      "Sertifikat bidang pemrograman. Ganti judul, penerbit, dan gambarnya dengan data sertifikat asli.",
+      "A certificate in programming. Replace the title, issuer, and image with the real certificate data.",
   },
   {
     id: "cert-02",
-    title: "Sertifikat Pengembangan Web",
-    issuer: "Belum diisi",
+    title: "Web Development Certificate",
+    issuer: "Not provided yet",
     year: "2025",
     category: "Programming",
     image: "/images/certificates/programming-02.svg",
     description:
-      "Sertifikat bidang pengembangan web. Ganti judul, penerbit, dan gambarnya dengan data sertifikat asli.",
+      "A certificate in web development. Replace the title, issuer, and image with the real certificate data.",
   },
   {
     id: "cert-03",
-    title: "Sertifikat Basis Data",
-    issuer: "Belum diisi",
+    title: "Database Certificate",
+    issuer: "Not provided yet",
     year: "2024",
     category: "Programming",
     image: "/images/certificates/programming-03.svg",
     description:
-      "Sertifikat bidang basis data. Ganti judul, penerbit, dan gambarnya dengan data sertifikat asli.",
+      "A certificate in databases. Replace the title, issuer, and image with the real certificate data.",
   },
   {
     id: "cert-04",
-    title: "Penghargaan Organisasi",
+    title: "Organization Award",
     issuer: "Dewan Perwakilan Mahasiswa FTI UNTAR",
     year: "2025",
-    category: "Organisasi",
+    category: "Organization",
     image: "/images/certificates/organization-01.svg",
     description:
-      "Berkaitan dengan peran sebagai Staff of Advocation & Legislation periode Desember 2024 sampai Juni 2025.",
+      "For the role of Staff of Advocation & Legislation, from December 2024 to June 2025.",
   },
   {
     id: "cert-05",
-    title: "Penghargaan Kepanitiaan",
+    title: "Committee Award",
     issuer: "Student Council (OSIS)",
     year: "2023",
-    category: "Organisasi",
+    category: "Organization",
     image: "/images/certificates/organization-02.svg",
     description:
-      "Berkaitan dengan peran sebagai Ketua Divisi Kerohanian periode November 2021 sampai September 2023.",
+      "For the role of Head of the Spiritual Affairs Division, from November 2021 to September 2023.",
   },
   {
     id: "cert-06",
-    title: "Sertifikat Sekolah",
-    issuer: "Belum diisi",
+    title: "School Certificate",
+    issuer: "Not provided yet",
     year: "2023",
-    category: "Sekolah",
+    category: "School",
     image: "/images/certificates/school-01.svg",
     description:
-      "Sertifikat masa sekolah menengah. Ganti judul, penerbit, dan gambarnya dengan data sertifikat asli.",
+      "A certificate from high school. Replace the title, issuer, and image with the real certificate data.",
   },
 ];

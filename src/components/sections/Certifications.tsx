@@ -30,9 +30,9 @@ export default function Certifications() {
       <Container>
         <SectionHeading
           index="05"
-          label="Sertifikasi"
-          title="Sertifikat dan penghargaan."
-          description="Kumpulan sertifikat bidang pemrograman, kegiatan sekolah, dan organisasi. Klik salah satu untuk melihat versi penuhnya."
+          label="Certifications"
+          title="Certificates and awards."
+          description="A collection of certificates from programming, school activities, and organizations. Click one to see the full version."
         />
 
         <div className="mt-20 grid gap-x-8 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
@@ -46,14 +46,14 @@ export default function Certifications() {
                 <div className="border-line bg-ink-2 relative aspect-[3/4] w-full overflow-hidden border">
                   <Image
                     src={certification.image}
-                    alt={`Sertifikat: ${certification.title}`}
+                    alt={`Certificate: ${certification.title}`}
                     fill
                     unoptimized
                     sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw"
                     className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
                   />
                   <span className="bg-ink/75 text-paper absolute right-0 bottom-0 px-3 py-2 font-mono text-[0.5625rem] tracking-[0.2em] uppercase opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-                    Lihat penuh
+                    View full
                   </span>
                 </div>
 
@@ -104,7 +104,7 @@ export default function Certifications() {
               <div className="border-line bg-ink-2 relative aspect-[3/4] max-h-[78vh] w-full border">
                 <Image
                   src={active.image}
-                  alt={`Sertifikat: ${active.title}`}
+                  alt={`Certificate: ${active.title}`}
                   fill
                   unoptimized
                   sizes="90vw"
@@ -124,7 +124,7 @@ export default function Certifications() {
                   onClick={() => setOpenId(null)}
                   className="text-mute hover:text-paper font-mono text-[0.625rem] tracking-[0.2em] uppercase transition-colors duration-500"
                 >
-                  Tutup (Esc)
+                  Close (Esc)
                 </button>
               </div>
             </motion.div>

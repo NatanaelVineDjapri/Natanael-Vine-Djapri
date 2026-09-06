@@ -12,7 +12,7 @@ export default function About() {
       <Container>
         <SectionHeading
           index="02"
-          label="Tentang Saya"
+          label="About Me"
           title="Software Engineer and Artificial Intelligence Enthusiast."
         />
 
@@ -60,7 +60,7 @@ export default function About() {
                 */}
                 <Image
                   src={profile.photoHome}
-                  alt={`Foto ${profile.name}`}
+                  alt={`Photo of ${profile.name}`}
                   fill
                   unoptimized
                   sizes="(min-width: 1024px) 30vw, 90vw"

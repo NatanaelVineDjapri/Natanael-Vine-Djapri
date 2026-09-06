@@ -124,14 +124,14 @@ export default function Navbar() {
               href={profile.resumeUrl}
               className="bg-ink text-paper hidden items-center rounded-full px-4 py-2.5 font-mono text-[0.625rem] tracking-[0.14em] uppercase transition-transform duration-500 hover:scale-[1.04] md:inline-flex"
             >
-              Unduh CV
+              Download CV
             </a>
 
             <button
               type="button"
               onClick={() => setOpen((value) => !value)}
               aria-expanded={open}
-              aria-label={open ? "Tutup menu" : "Buka menu"}
+              aria-label={open ? "Close menu" : "Open menu"}
               className="flex size-10 flex-col items-center justify-center gap-[5px] rounded-full lg:hidden"
             >
               <motion.span
@@ -189,7 +189,7 @@ export default function Navbar() {
                 transition={{ delay: 0.65, duration: 0.6 }}
                 className="text-mute mt-10 font-mono text-[0.6875rem] tracking-[0.2em] uppercase"
               >
-                Unduh CV
+                Download CV
               </motion.a>
             </Container>
           </motion.div>

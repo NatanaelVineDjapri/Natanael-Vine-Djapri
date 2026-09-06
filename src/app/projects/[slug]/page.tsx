@@ -75,7 +75,13 @@ export default async function ProjectDetailPage(
         <Reveal delay={0.1}>
           <div className="mt-20">
             <ProjectGallery
-              images={project.gallery ?? [project.cover]}
+              images={
+                project.gallery?.length
+                  ? project.gallery
+                  : project.cover
+                    ? [project.cover]
+                    : []
+              }
               alt={project.title}
             />
           </div>
@@ -121,33 +127,35 @@ export default async function ProjectDetailPage(
               </div>
             </Reveal>
 
-            {project.repoUrl || project.liveUrl ? (
-              <Reveal delay={0.1}>
-                <p className="eyebrow border-line/70 mt-12 border-t pt-8">Links</p>
-                <div className="mt-6 flex flex-col gap-3">
-                  {project.liveUrl ? (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-paper-dim hover:text-paper link-wipe self-start font-mono text-xs tracking-[0.08em] transition-colors duration-500"
-                    >
-                      Visit site
-                    </a>
-                  ) : null}
-                  {project.repoUrl ? (
-                    <a
-                      href={project.repoUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-paper-dim hover:text-paper link-wipe self-start font-mono text-xs tracking-[0.08em] transition-colors duration-500"
-                    >
-                      Source code
-                    </a>
-                  ) : null}
-                </div>
-              </Reveal>
-            ) : null}
+            <Reveal delay={0.1}>
+              <p className="eyebrow border-line/70 mt-12 border-t pt-8">Links</p>
+              <div className="mt-6 flex flex-col gap-3">
+                {[
+                  { label: "Website", url: project.webUrl, action: "Visit site" },
+                  { label: "YouTube", url: project.youtubeUrl, action: "Watch demo" },
+                  { label: "Docs", url: project.docsUrl, action: "View docs" },
+                ].map((link) => (
+                  <div
+                    key={link.label}
+                    className="flex items-baseline justify-between gap-4 font-mono text-xs tracking-[0.08em]"
+                  >
+                    <span className="text-mute">{link.label}</span>
+                    {link.url ? (
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-paper-dim hover:text-paper link-wipe"
+                      >
+                        {link.action}
+                      </a>
+                    ) : (
+                      <span className="text-mute">-</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </Reveal>
           </aside>
         </div>
 
