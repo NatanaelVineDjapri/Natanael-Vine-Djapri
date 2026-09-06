@@ -44,11 +44,15 @@ export default function TextReveal({
       {words.map((word, index) => (
         <span
           key={`${word}-${index}`}
-          // pb/-mb cancel each other out for layout, but the padding still
-          // pushes the overflow-hidden clip edge down, giving descenders
-          // (the tails on j, p, y, g — especially in italic type) room to
-          // show instead of getting cut off by a tight parent line-height.
-          className="mr-[0.26em] -mb-[0.22em] inline-block overflow-hidden pb-[0.22em] align-bottom"
+          // pb/-mb cancel out for layout, but the padding still pushes the
+          // overflow-hidden clip edge down, giving descenders (the tails on
+          // j, p, y, g) room to show. pr does the same on the right edge:
+          // italic type (Instrument Serif italic especially) slants and its
+          // terminal strokes — the flick on a trailing "e" — overshoot the
+          // glyph's normal advance width and get clipped by a tight box.
+          // mr is trimmed by the same amount so total word spacing matches
+          // the un-padded layout.
+          className="mr-[0.11em] -mb-[0.22em] inline-block overflow-hidden pr-[0.15em] pb-[0.22em] align-bottom"
         >
           <motion.span
             className={cn("inline-block will-change-transform", wordClassName)}

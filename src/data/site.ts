@@ -11,8 +11,8 @@ export const navItems: NavItem[] = [
 ];
 
 export const stats = [
-  { value: "3.98", label: "IPK kumulatif" },
-  { value: "2028", label: "Target kelulusan" },
-  { value: "06", label: "Proyek utama" },
-  { value: "02", label: "Organisasi" },
+  { value: "3.98", label: "Cumulative GPA" },
+  { value: "2028", label: "Graduation Target" },
+  { value: "100+", label: "Coding Hours" },
+  { value: "06", label: "Main Projects" },
 ];

@@ -22,14 +22,14 @@ export const profile: Profile = {
   // uncropped in color. profile.jpg (the old CV thumbnail) was only
   // 144x192px and looked pixelated at any real size.
   photoHome: "/images/PIC2.jpeg",
-  photoLanyard: "/images/PIC1.jpeg",
+  photoLanyard: "/images/PIC2.jpeg",
   available: "Open To Internship & Entry Level Jobs",
   intro:
     "Motivated second-year Informatics Engineering student at Tarumanagara University with strong problem-solving, critical thinking, and communication skills, passionate about technology and continuous learning.",
 
     
   bio: [
-    "My name is Natanael Vine Djapri, an undergraduate Informatics Engineering student at Tarumanagara University. I have a strong interest in full-stack development, and artificial intelligenceBE, especially in developing practical digital solutions for real-world problems.",
+    "My name is Natanael Vine Djapri, an undergraduate Informatics Engineering student at Tarumanagara University. I have a strong interest in software development, and artificial intelligence, especially in developing practical digital solutions for real-world problems.",
 
     "My experience comes mainly from academic and personal projects, where I have worked on full-stack applications, educational technology, and business digitalization. I particularly enjoy developing practical applications while exploring how AI can be integrated to create smarter and more useful solutions.",
 

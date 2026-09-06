@@ -12,9 +12,9 @@ export default function Skills() {
       <Container>
         <SectionHeading
           index="03"
-          label="Keahlian"
-          title="Tiga lapis praktik."
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit tempus porttitor magna mollis euismod."
+          label="Skills"
+          title="What I Bring."
+          description="The technologies, tools, and interpersonal skills I use and continue to develop through my projects, studies, and experience."
         />
 
         <div className="mt-20 grid gap-px md:grid-cols-3">
@@ -29,7 +29,7 @@ export default function Skills() {
                 </div>
 
                 <p className="text-mute-2 mt-5 text-sm leading-relaxed text-balance-pretty">
-                  {group.description}
+                  {/* {group.description} */}
                 </p>
 
                 <ul className="mt-8 space-y-0">
@@ -50,7 +50,7 @@ export default function Skills() {
 
         <Reveal>
           <div className="border-line/70 mt-20 border-t pt-10">
-            <p className="eyebrow">Mata kuliah relevan</p>
+            <p className="eyebrow">Relevant Coursework</p>
             <div className="mt-6 flex flex-wrap gap-2">
               {coursework.map((item) => (
                 <Badge key={item}>{item}</Badge>

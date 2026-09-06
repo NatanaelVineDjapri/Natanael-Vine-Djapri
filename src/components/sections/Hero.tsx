@@ -10,7 +10,7 @@ export default function Hero() {
       id="beranda"
       className="relative flex min-h-dvh flex-col overflow-hidden pt-[7px]"
     >
-      <Container className="relative flex-1 py-10">
+      <Container className="relative flex-1 py-2">
         <div className="grid items-center gap-4 lg:grid-cols-12">
           {/* Type block */}
           <div className="pt-16 lg:col-span-7 lg:pt-24">

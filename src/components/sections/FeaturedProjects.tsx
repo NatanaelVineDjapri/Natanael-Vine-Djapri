@@ -1,9 +1,7 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
-import { motion, useMotionValue, useSpring } from "motion/react";
+import { useState } from "react";
 import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/motion/Reveal";
@@ -14,63 +12,18 @@ const featured = getFeaturedProjects();
 
 export default function FeaturedProjects() {
   const [hovered, setHovered] = useState<string | null>(null);
-  const wrapper = useRef<HTMLDivElement>(null);
-
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const previewX = useSpring(x, { stiffness: 220, damping: 28, mass: 0.5 });
-  const previewY = useSpring(y, { stiffness: 220, damping: 28, mass: 0.5 });
-
-  const onMove = (event: React.MouseEvent) => {
-    const bounds = wrapper.current?.getBoundingClientRect();
-    if (!bounds) return;
-    x.set(event.clientX - bounds.left);
-    y.set(event.clientY - bounds.top);
-  };
-
-  const active = featured.find((project) => project.slug === hovered);
 
   return (
     <section id="karya" className="py-28 md:py-40">
       <Container>
         <SectionHeading
           index="04"
-          label="Karya"
-          title="Pilihan proyek."
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id elit non mi porta gravida at eget metus."
+          label="PROJECTS"
+          title="Things I’ve built."
+          description="A collection of projects I’ve worked on while exploring software engineering, artificial intelligence, and different technologies."
         />
 
-        <div
-          ref={wrapper}
-          onMouseMove={onMove}
-          onMouseLeave={() => setHovered(null)}
-          className="relative mt-20"
-        >
-          {/* Cursor-tracked preview, desktop only */}
-          <motion.div
-            aria-hidden="true"
-            style={{ x: previewX, y: previewY }}
-            animate={{
-              opacity: active ? 1 : 0,
-              scale: active ? 1 : 0.86,
-            }}
-            transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-            className="pointer-events-none absolute top-0 left-0 z-20 hidden lg:block"
-          >
-            <div className="border-line bg-ink-2 relative -ml-40 -translate-y-1/2 overflow-hidden border">
-              {active ? (
-                <Image
-                  src={active.cover}
-                  alt=""
-                  width={320}
-                  height={220}
-                  unoptimized
-                  className="h-[220px] w-[320px] object-cover"
-                />
-              ) : null}
-            </div>
-          </motion.div>
-
+        <div onMouseLeave={() => setHovered(null)} className="relative mt-20">
           <div className="border-line/70 border-t">
             {featured.map((project, index) => (
               <Reveal key={project.slug} delay={index * 0.06}>

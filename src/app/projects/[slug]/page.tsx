@@ -17,7 +17,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const { slug } = await props.params;
   const project = getProject(slug);
-  if (!project) return { title: "Proyek tidak ditemukan" };
+  if (!project) return { title: "Project not found" };
 
   return {
     title: `${project.title} / ${project.category}`,
@@ -41,8 +41,8 @@ export default async function ProjectDetailPage(
       <Container className="py-24 md:py-32">
         <Reveal y={12}>
           <div className="flex items-center gap-4">
-            <span className="eyebrow">{project.index}</span>
-            <span className="bg-line h-px w-10" />
+            {/* <span className="eyebrow">{project.index}</span> */}
+            {/* <span className="bg-line h-px w-10" /> */}
             <span className="eyebrow">{project.category}</span>
           </div>
         </Reveal>
@@ -59,9 +59,9 @@ export default async function ProjectDetailPage(
 
         <div className="border-line/70 mt-16 grid gap-8 border-t pt-8 sm:grid-cols-3">
           {[
-            { label: "Tahun", value: project.year },
-            { label: "Peran", value: project.role },
-            { label: "Kategori", value: project.category },
+            { label: "Year", value: project.year },
+            { label: "Role", value: project.role },
+            { label: "Category", value: project.category },
           ].map((item, index) => (
             <Reveal key={item.label} delay={index * 0.07}>
               <p className="eyebrow">{item.label}</p>
@@ -99,7 +99,7 @@ export default async function ProjectDetailPage(
             </div>
 
             <Reveal>
-              <h2 className="font-display mt-16 text-3xl">Kontribusi</h2>
+              <h2 className="font-display mt-16 text-3xl">Contributions</h2>
               <ul className="mt-8">
                 {project.contributions.map((item, index) => (
                   <li
@@ -118,7 +118,7 @@ export default async function ProjectDetailPage(
 
           <aside className="lg:col-span-4 lg:col-start-9">
             <Reveal>
-              <p className="eyebrow">Teknologi</p>
+              <p className="eyebrow">Tech Stack</p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {project.stack.map((item) => (
                   <Badge key={item}>{item}</Badge>
@@ -128,7 +128,7 @@ export default async function ProjectDetailPage(
 
             {project.repoUrl || project.liveUrl ? (
               <Reveal delay={0.1}>
-                <p className="eyebrow border-line/70 mt-12 border-t pt-8">Tautan</p>
+                <p className="eyebrow border-line/70 mt-12 border-t pt-8">Links</p>
                 <div className="mt-6 flex flex-col gap-3">
                   {project.liveUrl ? (
                     <a
@@ -137,7 +137,7 @@ export default async function ProjectDetailPage(
                       rel="noreferrer"
                       className="text-paper-dim hover:text-paper link-wipe self-start font-mono text-xs tracking-[0.08em] transition-colors duration-500"
                     >
-                      Kunjungi situs
+                      Visit site
                     </a>
                   ) : null}
                   {project.repoUrl ? (
@@ -147,7 +147,7 @@ export default async function ProjectDetailPage(
                       rel="noreferrer"
                       className="text-paper-dim hover:text-paper link-wipe self-start font-mono text-xs tracking-[0.08em] transition-colors duration-500"
                     >
-                      Kode sumber
+                      Source code
                     </a>
                   ) : null}
                 </div>
@@ -162,7 +162,7 @@ export default async function ProjectDetailPage(
             className="group border-line/70 mt-28 flex items-center justify-between gap-6 border-t pt-10"
           >
             <div>
-              <p className="eyebrow">Proyek berikutnya</p>
+              <p className="eyebrow">Next project</p>
               <p className="font-display group-hover:text-mute-2 mt-4 text-[clamp(2rem,5vw,4rem)] leading-none transition-colors duration-500">
                 {next.title}
               </p>
