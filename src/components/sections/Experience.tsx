@@ -27,7 +27,7 @@ export default function Experience() {
           index="06"
           label="Journey"
           title="Track record."
-          description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero a pharetra augue mollis."
+          description="A timeline of my education, work, and organizational experience so far."
         />
 
         <div ref={track} className="relative mt-20 pl-8 md:pl-0">

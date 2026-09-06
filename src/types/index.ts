@@ -47,9 +47,10 @@ export type Project = {
   cover?: string;
   /** Extra photos for the detail-page gallery. Falls back to just `cover` when omitted. */
   gallery?: string[];
-  /** The three link slots every project card shows — left unset shows as "-". */
+  /** The link slots every project card shows — left unset shows as "-". */
   webUrl?: string;
   youtubeUrl?: string;
+  repoUrl?: string;
   docsUrl?: string;
   featured: boolean;
 };
@@ -59,8 +60,11 @@ export type Certification = {
   title: string;
   issuer: string;
   year: string;
+  /** One of "Learning", "Volunteering", or "Award" — used to group the section. */
   category: string;
-  image: string;
+  /** Omit for credentials with no scanned certificate (e.g. LinkedIn Learning badges) — renders a placeholder instead. */
+  image?: string;
+  credentialId?: string;
   description: string;
   url?: string;
 };

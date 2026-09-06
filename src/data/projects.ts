@@ -69,6 +69,8 @@ export const projects: Project[] = [
       "/images/cbt-akademis-ai/sprint%205/Deploy(buat%20ujian).png",
       "/images/cbt-akademis-ai/sprint%205/Deploy.png",
     ],
+    webUrl: "https://cbtakademis-ai.my.id/",
+    repoUrl: "https://github.com/NatanaelVineDjapri/CBT-Akademis-AI",
     featured: true,
   },
   {
@@ -90,6 +92,8 @@ export const projects: Project[] = [
       "Designed and integrated core business modules for operational efficiency and data accessibility.",
       "Oversaw frontend development, backend integration, and deployment throughout the project lifecycle.",
     ],
+    webUrl: "https://rajawali-plastic.vercel.app/",
+    repoUrl: "https://github.com/NatanaelVineDjapri/RajawaliPlastic",
     featured: true,
   },
   {
@@ -111,6 +115,7 @@ export const projects: Project[] = [
       "Implemented user authentication, product management, shopping cart, and digital wallet features.",
       "Integrated a RESTful API for seamless communication between the mobile app and backend.",
     ],
+    repoUrl: "https://github.com/NatanaelVineDjapri/Eggsplore_Marketplace",
     featured: true,
   },
 {
@@ -143,6 +148,7 @@ export const projects: Project[] = [
       "/images/cakraquiz/Screenshot%202025-09-13%20172424.png",
       "/images/cakraquiz/Screenshot%202025-09-14%20160258.png",
     ],
+    repoUrl: "https://github.com/NatanaelVineDjapri/CakraQuiz",
     featured: false,
   },
   {
@@ -169,6 +175,8 @@ export const projects: Project[] = [
       "/images/pingy/Screenshot%202025-09-01%20195656.png",
       "/images/pingy/Screenshot%202025-09-01%20195859.png",
     ],
+    youtubeUrl: "https://youtu.be/q7D1Q1XeO-s?si=I7sJPNp0l41N6lL9",
+    repoUrl: "https://github.com/NatanaelVineDjapri/Pingy",
     featured: true,
   },
   {
@@ -190,6 +198,7 @@ export const projects: Project[] = [
       "Implemented routing, controllers, and error handling with Express.js.",
       "Tested API responses against different request scenarios.",
     ],
+    repoUrl: "https://github.com/NatanaelVineDjapri/Cocktails_API",
     featured: false,
   },
   {
@@ -244,6 +253,8 @@ export const projects: Project[] = [
       "/images/akarcerita/Screenshot%20(246).png",
       "/images/akarcerita/Screenshot%20(247).png",
     ],
+    youtubeUrl: "https://youtu.be/Pbg10KR22mo?si=3n0AzCE-5vaJh8d2",
+    repoUrl: "https://github.com/NatanaelVineDjapri/AkarCerita",
     featured: false,
   },
 ];

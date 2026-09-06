@@ -17,7 +17,6 @@ export default function ProjectsPage() {
       <Container className="py-24 md:py-32">
         <div className="flex items-center gap-4">
           <span className="eyebrow">Archive</span>
-          <span className="bg-line h-px w-10" />
           <span className="eyebrow">{projects.length} projects</span>
         </div>
 
@@ -33,8 +32,8 @@ export default function ProjectsPage() {
 
         <Reveal delay={0.2}>
           <p className="text-mute-2 border-line/70 mt-12 max-w-xl border-t pt-6 leading-relaxed text-balance-pretty">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere
-            erat a ante venenatis dapibus posuere velit aliquet.
+            A complete archive of everything I&apos;ve built — full-stack platforms,
+            mobile apps, backend services, and early frontend exercises.
           </p>
         </Reveal>
 

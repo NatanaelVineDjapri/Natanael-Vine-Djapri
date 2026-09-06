@@ -9,7 +9,6 @@ export default function Contact() {
       <Container>
         <div className="flex items-center gap-4">
           <span className="eyebrow">07</span>
-          <span className="bg-line h-px w-10" />
           <span className="eyebrow">Contact</span>
         </div>
 

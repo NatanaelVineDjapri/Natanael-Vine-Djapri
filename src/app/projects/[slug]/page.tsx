@@ -133,6 +133,7 @@ export default async function ProjectDetailPage(
                 {[
                   { label: "Website", url: project.webUrl, action: "Visit site" },
                   { label: "YouTube", url: project.youtubeUrl, action: "Watch demo" },
+                  { label: "Repository", url: project.repoUrl, action: "Source code" },
                   { label: "Docs", url: project.docsUrl, action: "View docs" },
                 ].map((link) => (
                   <div
