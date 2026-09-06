@@ -44,6 +44,8 @@ export type Project = {
   stack: string[];
   contributions: string[];
   cover: string;
+  /** Extra photos for the detail-page gallery. Falls back to just `cover` when omitted. */
+  gallery?: string[];
   repoUrl?: string;
   liveUrl?: string;
   featured: boolean;

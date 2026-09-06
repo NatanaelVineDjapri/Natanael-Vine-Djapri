@@ -92,7 +92,6 @@ export const projects: Project[] = [
       "Built the view layer using Blade and JavaScript.",
     ],
     cover: "/images/projects/halcyon.svg",
-    repoUrl: "https://github.com/NatanaelVineDjapri/Pingy",
     featured: true,
   },
   {
@@ -115,7 +114,6 @@ export const projects: Project[] = [
       "Tested API responses against different request scenarios.",
     ],
     cover: "/images/projects/obsidian.svg",
-    repoUrl: "https://github.com/NatanaelVineDjapri/Cocktails_API",
     featured: false,
   },
   {
@@ -137,6 +135,26 @@ export const projects: Project[] = [
       "Arranged components and basic responsiveness using pure CSS.",
     ],
     cover: "/images/projects/atlas.svg",
+    featured: false,
+  },
+  {
+    slug: "cakraquiz",
+    index: "07",
+    title: "CakraQuiz",
+    category: "Static Website",
+    year: "2024",
+    role: "Frontend Developer",
+    summary:
+      "A basic web development project built with HTML, CSS, and JavaScript, without any additional frameworks or libraries.",
+    description: [
+      "This project is designed to teach basic web development using HTML, CSS, and JavaScript, without any additional frameworks or libraries. The focus is on understanding web structure, styling, and simple interactivity.",
+    ],
+    stack: ["HTML", "CSS", "JavaScript"],
+    contributions: [
+      "Built a quiz web app from scratch using vanilla HTML, CSS, and JavaScript.",
+      "Focused on clean web structure, styling, and simple interactivity without relying on frameworks or libraries.",
+    ],
+    cover: "/images/projects/cipher.svg",
     featured: false,
   },
 ];

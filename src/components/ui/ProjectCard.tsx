@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Badge from "./Badge";
+import TechBadge from "./TechBadge";
 import type { Project } from "@/types";
 
 export default function ProjectCard({ project }: { project: Project }) {
@@ -39,7 +39,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
       <div className="mt-6 flex flex-wrap gap-2">
         {project.stack.slice(0, 4).map((item) => (
-          <Badge key={item}>{item}</Badge>
+          <TechBadge key={item} name={item} />
         ))}
       </div>
     </Link>

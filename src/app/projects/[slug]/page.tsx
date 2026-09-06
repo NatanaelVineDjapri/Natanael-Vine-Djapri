@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Container from "@/components/layout/Container";
-import Badge from "@/components/ui/Badge";
+import TechBadge from "@/components/ui/TechBadge";
+import ProjectGallery from "@/components/ui/ProjectGallery";
 import TextReveal from "@/components/motion/TextReveal";
 import Reveal from "@/components/motion/Reveal";
 import { getProject, projects } from "@/data/projects";
@@ -73,15 +73,10 @@ export default async function ProjectDetailPage(
         </div>
 
         <Reveal delay={0.1}>
-          <div className="border-line bg-ink-2 relative mt-20 aspect-[16/9] w-full overflow-hidden border">
-            <Image
-              src={project.cover}
-              alt=""
-              fill
-              unoptimized
-              priority
-              sizes="100vw"
-              className="object-cover"
+          <div className="mt-20">
+            <ProjectGallery
+              images={project.gallery ?? [project.cover]}
+              alt={project.title}
             />
           </div>
         </Reveal>
@@ -121,7 +116,7 @@ export default async function ProjectDetailPage(
               <p className="eyebrow">Tech Stack</p>
               <div className="mt-6 flex flex-wrap gap-2">
                 {project.stack.map((item) => (
-                  <Badge key={item}>{item}</Badge>
+                  <TechBadge key={item} name={item} />
                 ))}
               </div>
             </Reveal>
