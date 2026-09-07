@@ -13,11 +13,11 @@ export default function Hero() {
       <Container className="relative flex-1 py-2">
         <div className="grid items-center gap-4 lg:grid-cols-12">
           {/* Type block */}
-          <div className="pt-16 lg:col-span-7 lg:pt-24">
+          <div className="pt-28 lg:col-span-7 lg:pt-24">
             <Reveal y={12}>
-              <div className="flex items-center gap-4">
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
                 <span className="eyebrow">Portofolio</span>
-                <span className="eyebrow">||</span>
+                <span className="eyebrow hidden sm:inline">||</span>
                 {/* <span className="bg-line h-px w-12" /> */}
                 <span className="eyebrow">{profile.available}</span>
               </div>
@@ -45,8 +45,8 @@ export default function Hero() {
             </Reveal>
           </div>
 
-          {/* Draggable badge */}
-          <div className="relative lg:col-span-5">
+          {/* Draggable badge, desktop only */}
+          <div className="relative hidden lg:col-span-5 lg:block">
             <Lanyard />
             {/* <Reveal delay={0.5}>
               <p className="text-mute pointer-events-none -mt-6 text-center font-mono text-[0.625rem] tracking-[0.22em] uppercase">
@@ -60,9 +60,9 @@ export default function Hero() {
       {/* Standing details along the bottom edge. Kept in normal flow (not
           absolutely positioned) so it is pushed below the hero content
           instead of overlapping it when the intro text runs long. */}
-      <Container className="hidden pb-8 md:block">
+      <Container className="pb-8">
         <Reveal delay={0.6}>
-          <div className="border-line/70 text-mute flex items-center justify-between border-t pt-5 font-mono text-[0.625rem] tracking-[0.2em] uppercase">
+          <div className="border-line/70 text-mute flex flex-col gap-2 border-t pt-5 font-mono text-[0.625rem] tracking-[0.2em] uppercase sm:flex-row sm:items-center sm:justify-between">
             <span>{profile.location}</span>
             <span className="hidden md:inline">{profile.timezone}</span>
             <span>{profile.role}</span>

@@ -1,13 +1,15 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import CoverPlaceholder from "./CoverPlaceholder";
 
-const SLIDE = 60; // % of container width taken by the active slide
+// % of container width taken by the active slide. A phone has no room to spare
+// for the peeking neighbours, so they shrink to a sliver there.
+const SLIDE_WIDE = 60;
+const SLIDE_NARROW = 86;
 const GAP = 2; // % gap between slides
-const STEP = SLIDE + GAP;
 
 /**
  * Coverflow-style slider for the project detail page: the active photo sits
@@ -22,8 +24,17 @@ export default function ProjectGallery({
   alt: string;
 }) {
   const [index, setIndex] = useState(0);
+  const [slide, setSlide] = useState(SLIDE_WIDE);
   const hasMultiple = images.length > 1;
   const length = images.length;
+
+  useEffect(() => {
+    const query = window.matchMedia("(min-width: 768px)");
+    const apply = () => setSlide(query.matches ? SLIDE_WIDE : SLIDE_NARROW);
+    apply();
+    query.addEventListener("change", apply);
+    return () => query.removeEventListener("change", apply);
+  }, []);
 
   if (length === 0) {
     return (
@@ -48,7 +59,9 @@ export default function ProjectGallery({
       <div className="relative overflow-hidden">
         <div
           className="flex transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)]"
-          style={{ transform: `translateX(calc(50% - ${displayIndex * STEP + SLIDE / 2}%))` }}
+          style={{
+            transform: `translateX(calc(50% - ${displayIndex * (slide + GAP) + slide / 2}%))`,
+          }}
         >
           {slides.map((src, position) => {
             const isActive = position === displayIndex;
@@ -61,7 +74,7 @@ export default function ProjectGallery({
               <div
                 key={`${src}-${position}`}
                 onClick={() => !isActive && goTo()}
-                style={{ width: `${SLIDE}%`, marginRight: `${GAP}%` }}
+                style={{ width: `${slide}%`, marginRight: `${GAP}%` }}
                 className={cn(
                   "border-line bg-ink-2 relative aspect-[16/9] shrink-0 overflow-hidden border transition-opacity duration-500",
                   isActive ? "opacity-100" : "cursor-pointer opacity-65 hover:opacity-90",
@@ -93,7 +106,7 @@ export default function ProjectGallery({
             type="button"
             onClick={() => go(-1)}
             aria-label="Previous photo"
-            className="bg-ink/60 text-paper hover:bg-ink/85 absolute top-1/2 left-[8%] z-20 flex size-10 -translate-y-1/2 items-center justify-center rounded-full opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100"
+            className="bg-ink/60 text-paper hover:bg-ink/85 absolute top-1/2 left-2 z-20 flex size-10 -translate-y-1/2 items-center justify-center rounded-full opacity-100 backdrop-blur-sm transition-opacity duration-300 md:left-[8%] md:opacity-0 md:group-hover:opacity-100"
           >
             <svg width="18" height="18" viewBox="0 0 22 22" fill="none" aria-hidden="true">
               <path d="M14 4 6 11l8 7" stroke="currentColor" strokeWidth="1.4" />
@@ -103,7 +116,7 @@ export default function ProjectGallery({
             type="button"
             onClick={() => go(1)}
             aria-label="Next photo"
-            className="bg-ink/60 text-paper hover:bg-ink/85 absolute top-1/2 right-[8%] z-20 flex size-10 -translate-y-1/2 items-center justify-center rounded-full opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100"
+            className="bg-ink/60 text-paper hover:bg-ink/85 absolute top-1/2 right-2 z-20 flex size-10 -translate-y-1/2 items-center justify-center rounded-full opacity-100 backdrop-blur-sm transition-opacity duration-300 md:right-[8%] md:opacity-0 md:group-hover:opacity-100"
           >
             <svg width="18" height="18" viewBox="0 0 22 22" fill="none" aria-hidden="true">
               <path d="M8 4l8 7-8 7" stroke="currentColor" strokeWidth="1.4" />

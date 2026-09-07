@@ -25,7 +25,7 @@ export default function LanyardScene() {
     <Canvas
       camera={{ position: [0, 0, 13], fov: 25 }}
       gl={{ alpha: true, antialias: true }}
-      dpr={[1, 2]}
+      dpr={[1, 1.5]}
       // pan-y keeps vertical page scrolling alive over the canvas on touch
       // devices while still letting the card be flung sideways.
       style={{ background: "transparent", touchAction: "pan-y" }}

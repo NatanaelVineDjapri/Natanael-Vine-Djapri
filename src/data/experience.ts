@@ -7,7 +7,7 @@ import type { ExperienceItem } from "@/types";
 export const experience: ExperienceItem[] = [
   {
     id: "exp-high-school",
-    period: "2021 / 2024",
+    period: "2021 - 2024",
     role: "High School, Science Track",
     org: "Budi Mulia Jakarta",
     location: "Jakarta, Indonesia",
@@ -15,7 +15,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     id: "exp-03",
-    period: "Nov 2021 / Sep 2023",
+    period: "Nov 2021 - Sep 2023",
     role: "Head of Spiritual Affairs Division, OSIS",
     org: "Student Council",
     location: "Jakarta, Indonesia",
@@ -24,7 +24,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     id: "exp-04",
-    period: "2024 / 2028 (target)",
+    period: "2024 - 2028 (target)",
     role: "B.S. in Informatics Engineering, Faculty of Information Technology",
     org: "Universitas Tarumanagara",
     location: "Jakarta, Indonesia",
@@ -33,7 +33,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     id: "exp-02",
-    period: "Dec 2024 / Jun 2025",
+    period: "Dec 2024 - Jun 2025",
     role: "Staff of Advocation & Legislation",
     org: "Dewan Perwakilan Mahasiswa FTI UNTAR",
     location: "Jakarta, Indonesia",
@@ -42,7 +42,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     id: "exp-01",
-    period: "Mar 2025 / Present",
+    period: "Mar 2025 - Present",
     role: "Student Assistant, Quality Assurance and Audit Office",
     org: "Universitas Tarumanagara",
     location: "Jakarta, Indonesia",

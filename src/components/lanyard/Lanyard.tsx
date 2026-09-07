@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 
 /**
  * WebGL, physics and the GLB together are far too heavy to ship with the first
@@ -12,6 +12,15 @@ const LanyardScene = dynamic(() => import("./LanyardScene"), {
   ssr: false,
   loading: () => <Placeholder />,
 });
+
+/** Below this the badge is dropped entirely — see `Lanyard`. */
+const DESKTOP = "(min-width: 1024px)";
+
+function subscribe(onChange: () => void) {
+  const query = window.matchMedia(DESKTOP);
+  query.addEventListener("change", onChange);
+  return () => query.removeEventListener("change", onChange);
+}
 
 function Placeholder() {
   return (
@@ -24,8 +33,14 @@ function Placeholder() {
 export default function Lanyard() {
   const ref = useRef<HTMLDivElement>(null);
   const [inView, setInView] = useState(false);
+  const desktop = useSyncExternalStore(
+    subscribe,
+    () => window.matchMedia(DESKTOP).matches,
+    () => false,
+  );
 
   useEffect(() => {
+    if (!desktop) return;
     const node = ref.current;
     if (!node) return;
 
@@ -41,14 +56,15 @@ export default function Lanyard() {
 
     observer.observe(node);
     return () => observer.disconnect();
-  }, []);
+  }, [desktop]);
+
+  // Phones get nothing at all: no reserved height, and the three.js/Rapier
+  // chunks are never even requested, since the dynamic import only runs when
+  // something actually renders the scene.
+  if (!desktop) return null;
 
   return (
-    <div
-      ref={ref}
-      className="h-[460px] w-full sm:h-[560px] lg:h-[680px]"
-      aria-hidden="true"
-    >
+    <div ref={ref} className="h-[680px] w-full" aria-hidden="true">
       {inView ? <LanyardScene /> : <Placeholder />}
     </div>
   );

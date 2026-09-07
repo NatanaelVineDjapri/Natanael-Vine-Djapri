@@ -3,6 +3,7 @@ import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/motion/Reveal";
 import Parallax from "@/components/motion/Parallax";
+import CountUp from "@/components/motion/CountUp";
 import { profile } from "@/data/profile";
 import { stats } from "@/data/site";
 
@@ -18,7 +19,7 @@ export default function About() {
 
         <div className="mt-20 grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Parallax strength={26} className="max-w-[300px]">
+            <Parallax strength={26} className="w-full lg:max-w-[300px]">
               <div className="border-line bg-ink-2 group relative aspect-[3/4] w-full overflow-hidden border">
                 {/*
                   HOW TO ADJUST THE CROP/ZOOM ON THIS PHOTO
@@ -80,7 +81,7 @@ export default function About() {
             <div className="space-y-6">
               {profile.bio.map((paragraph, index) => (
                 <Reveal key={index} delay={index * 0.08}>
-                  <p className="text-paper-dim text-lg leading-[1.75] text-justify text-balance-pretty">
+                  <p className="text-paper-dim text-base leading-[1.75] text-balance-pretty sm:text-lg md:text-justify">
                     {paragraph}
                   </p>
                 </Reveal>
@@ -91,7 +92,7 @@ export default function About() {
               {stats.map((stat, index) => (
                 <Reveal key={stat.label} delay={index * 0.07}>
                   <p className="font-display text-paper text-4xl leading-none">
-                    {stat.value}
+                    <CountUp value={stat.value} />
                   </p>
                   <p className="text-mute mt-3 font-mono text-[0.625rem] tracking-[0.16em] uppercase">
                     {stat.label}

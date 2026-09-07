@@ -156,9 +156,11 @@ export default function Navbar() {
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
             transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
-            className="bg-ink fixed inset-0 z-40 lg:hidden"
+            className="bg-ink fixed inset-0 z-40 overflow-y-auto lg:hidden"
           >
-            <Container className="flex h-full flex-col justify-center gap-1 pt-20">
+            {/* min-h-full + justify-center centres a short list but lets a tall
+                one grow and scroll, instead of clipping it out of reach. */}
+            <Container className="flex min-h-full flex-col justify-center gap-1 py-24">
               {navItems.map((item, index) => (
                 <motion.a
                   key={item.id}
@@ -171,12 +173,12 @@ export default function Navbar() {
                     delay: 0.18 + index * 0.06,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="border-line/60 group flex items-baseline gap-5 border-b py-4"
+                  className="border-line/60 group flex items-baseline gap-5 border-b py-3.5 sm:py-4"
                 >
                   <span className="text-mute font-mono text-[0.625rem] tracking-[0.2em]">
                     {item.index}
                   </span>
-                  <span className="font-display group-hover:text-mute-2 text-4xl transition-colors duration-500">
+                  <span className="font-display group-hover:text-mute-2 text-3xl transition-colors duration-500 sm:text-4xl">
                     {item.label}
                   </span>
                 </motion.a>

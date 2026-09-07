@@ -10,10 +10,6 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} {profile.name}
           </span>
 
-          <span className="hidden md:inline">
-            Designed &amp; built by myself
-          </span>
-
           <a
             href="#beranda"
             className="hover:text-paper link-wipe self-start transition-colors duration-500 md:self-auto"
