@@ -16,7 +16,6 @@ export default function ProjectCard({ project }: { project: Project }) {
             src={project.cover}
             alt=""
             fill
-            unoptimized
             sizes="(min-width: 1024px) 45vw, 100vw"
             className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
           />

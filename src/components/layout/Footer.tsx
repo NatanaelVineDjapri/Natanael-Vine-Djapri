@@ -11,7 +11,7 @@ export default function Footer() {
           </span>
 
           <a
-            href="#beranda"
+            href="#konten"
             className="hover:text-paper link-wipe self-start transition-colors duration-500 md:self-auto"
           >
             Back to top

@@ -55,7 +55,7 @@ export default function TextReveal({
           className="mr-[0.11em] -mb-[0.22em] inline-block overflow-hidden pr-[0.15em] pb-[0.22em] align-bottom"
         >
           <motion.span
-            className={cn("inline-block will-change-transform", wordClassName)}
+            className={cn("inline-block", wordClassName)}
             variants={{
               hidden: { y: "115%", opacity: 0 },
               shown: { y: "0%", opacity: 1 },

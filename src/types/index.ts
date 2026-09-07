@@ -20,7 +20,6 @@ export type Profile = {
   location: string;
   timezone: string;
   email: string;
-  phone: string;
   /** Shown in the About section portrait frame. */
   photoHome: string;
   /** Shown on the 3D lanyard badge, kept in full color (not grayscale). */

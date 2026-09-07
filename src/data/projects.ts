@@ -116,6 +116,7 @@ export const projects: Project[] = [
       "Integrated a RESTful API for seamless communication between the mobile app and backend.",
     ],
     repoUrl: "https://github.com/NatanaelVineDjapri/Eggsplore_Marketplace",
+    cover: "/images/eggsplore/eggsplore.png",
     featured: true,
   },
 {

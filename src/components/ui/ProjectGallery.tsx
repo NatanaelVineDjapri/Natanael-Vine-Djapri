@@ -84,9 +84,8 @@ export default function ProjectGallery({
                   src={src}
                   alt={alt}
                   fill
-                  unoptimized
                   priority={position === displayIndex}
-                  sizes="80vw"
+                  sizes="(min-width: 768px) 60vw, 86vw"
                   className="object-cover"
                 />
               </div>

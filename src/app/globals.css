@@ -122,7 +122,9 @@
 
 .grain {
   position: fixed;
-  inset: -50%;
+  /* Only needs enough slack to cover the 3% drift below. At -50% this painted
+     four viewports' worth of animated noise every frame. */
+  inset: -10%;
   z-index: 60;
   pointer-events: none;
   opacity: 0.035;

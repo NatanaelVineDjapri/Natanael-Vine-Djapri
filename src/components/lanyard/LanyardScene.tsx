@@ -20,9 +20,15 @@ function CameraRig() {
   return null;
 }
 
-export default function LanyardScene() {
+/**
+ * `active` is driven by whether the hero is on screen. Without it the physics
+ * loop and WebGL redraw keep running at full rate for the whole page, which
+ * shows up as scroll jank far below the hero.
+ */
+export default function LanyardScene({ active = true }: { active?: boolean }) {
   return (
     <Canvas
+      frameloop={active ? "always" : "never"}
       camera={{ position: [0, 0, 13], fov: 25 }}
       gl={{ alpha: true, antialias: true }}
       dpr={[1, 1.5]}

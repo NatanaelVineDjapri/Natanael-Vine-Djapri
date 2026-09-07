@@ -15,7 +15,6 @@ export const profile: Profile = {
   location: "Jakarta, Indonesia",
   timezone: "GMT+7",
   email: "natanaelvinedj@gmail.com",
-  phone: "+62 813-8799-8816",
   // Two different photos and two different treatments: the About section
   // zooms in tight on the face from a wide meeting-room shot and
   // desaturates it, the lanyard badge shows a separate photo fully
@@ -51,11 +50,6 @@ export const profile: Profile = {
       label: "Instagram",
       handle: "natanaellvd",
       url: "https://www.instagram.com/natanaellvd/",
-    },
-    {
-      label: "WhatsApp",
-      handle: "+62 813-8799-8816",
-      url: "https://wa.me/6281387998816",
     },
     {
       label: "Email",

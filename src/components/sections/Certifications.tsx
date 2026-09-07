@@ -28,7 +28,6 @@ function CertificationCard({
               src={certification.image}
               alt={`Certificate: ${certification.title}`}
               fill
-              unoptimized
               sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw"
               className="object-contain transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
             />
@@ -179,7 +178,6 @@ export default function Certifications() {
                     src={active.image}
                     alt={`Certificate: ${active.title}`}
                     fill
-                    unoptimized
                     sizes="90vw"
                     className="object-contain"
                   />
@@ -195,13 +193,27 @@ export default function Certifications() {
                     {active.issuer} / {active.year}
                   </p>
                 </div>
-                <button
-                  type="button"
-                  onClick={() => setOpenId(null)}
-                  className="text-mute hover:text-paper font-mono text-[0.625rem] tracking-[0.2em] uppercase transition-colors duration-500"
-                >
-                  Close (Esc)
-                </button>
+                <div className="flex items-baseline gap-6">
+                  {/* Cards with a scan open this modal instead of the issuer's
+                      page, so the credential link has to live in here too. */}
+                  {active.url ? (
+                    <a
+                      href={active.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-mute hover:text-paper link-wipe font-mono text-[0.625rem] tracking-[0.2em] uppercase transition-colors duration-500"
+                    >
+                      Verify credential
+                    </a>
+                  ) : null}
+                  <button
+                    type="button"
+                    onClick={() => setOpenId(null)}
+                    className="text-mute hover:text-paper font-mono text-[0.625rem] tracking-[0.2em] uppercase transition-colors duration-500"
+                  >
+                    Close (Esc)
+                  </button>
+                </div>
               </div>
             </motion.div>
           </motion.div>

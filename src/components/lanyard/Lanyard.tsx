@@ -32,7 +32,10 @@ function Placeholder() {
 
 export default function Lanyard() {
   const ref = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
+  // Latched: once the scene has been paid for, keep it mounted.
+  const [mounted, setMounted] = useState(false);
+  // Live: drives the render loop, so the canvas costs nothing once scrolled past.
+  const [onScreen, setOnScreen] = useState(false);
   const desktop = useSyncExternalStore(
     subscribe,
     () => window.matchMedia(DESKTOP).matches,
@@ -46,10 +49,8 @@ export default function Lanyard() {
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setInView(true);
-          observer.disconnect();
-        }
+        setOnScreen(entry.isIntersecting);
+        if (entry.isIntersecting) setMounted(true);
       },
       { rootMargin: "200px" },
     );
@@ -65,7 +66,7 @@ export default function Lanyard() {
 
   return (
     <div ref={ref} className="h-[680px] w-full" aria-hidden="true">
-      {inView ? <LanyardScene /> : <Placeholder />}
+      {mounted ? <LanyardScene active={onScreen} /> : <Placeholder />}
     </div>
   );
 }

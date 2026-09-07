@@ -25,7 +25,7 @@ export const experience: ExperienceItem[] = [
   {
     id: "exp-04",
     period: "2024 - 2028 (target)",
-    role: "B.S. in Informatics Engineering, Faculty of Information Technology",
+    role: "Bachelor’s Degree in Informatics Engineering, Faculty of Information Technology",
     org: "Universitas Tarumanagara",
     location: "Jakarta, Indonesia",
     description:
