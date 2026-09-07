@@ -21,7 +21,7 @@ function CertificationCard({
 }) {
   const body = (
     <>
-      <div className="border-line bg-ink-2 relative aspect-[3/4] w-full overflow-hidden border">
+      <div className="border-line bg-ink-2 relative aspect-[4/3] w-full overflow-hidden border">
         {certification.image ? (
           <>
             <Image
@@ -30,7 +30,7 @@ function CertificationCard({
               fill
               unoptimized
               sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 90vw"
-              className="object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
+              className="object-contain transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
             />
             <span className="bg-ink/75 text-paper absolute right-0 bottom-0 px-3 py-2 font-mono text-[0.5625rem] tracking-[0.2em] uppercase opacity-0 transition-opacity duration-500 group-hover:opacity-100">
               View full
@@ -173,7 +173,7 @@ export default function Certifications() {
               onClick={(event) => event.stopPropagation()}
               className="relative max-h-full w-full max-w-3xl overflow-auto"
             >
-              <div className="border-line bg-ink-2 relative aspect-[3/4] max-h-[78vh] w-full border">
+              <div className="border-line bg-ink-2 relative aspect-[4/3] max-h-[78vh] w-full border">
                 {active.image ? (
                   <Image
                     src={active.image}
