@@ -133,49 +133,32 @@ export default function ProjectGallery({
             </svg>
           </button>
 
-          {images.length <= 12 ? (
-            <div className="mt-5 flex items-center justify-center gap-2">
-              {images.map((_, dot) => (
+          <div className="mt-5">
+            <div className="no-scrollbar flex gap-1.5 overflow-x-auto px-4">
+              {images.map((src, thumb) => (
                 <button
-                  key={dot}
+                  key={`${src}-${thumb}`}
+                  ref={(el) => {
+                    thumbRefs.current[thumb] = el;
+                  }}
                   type="button"
-                  onClick={() => setIndex(dot)}
-                  aria-label={`Go to photo ${dot + 1}`}
+                  onClick={() => setIndex(thumb)}
+                  aria-label={`Go to photo ${thumb + 1}`}
                   className={cn(
-                    "h-1.5 rounded-full transition-all duration-300",
-                    dot === index ? "bg-paper w-6" : "bg-paper/30 hover:bg-paper/60 w-1.5",
+                    "border-line bg-ink-2 relative aspect-[16/9] w-16 shrink-0 overflow-hidden border transition-all duration-300",
+                    thumb === index
+                      ? "border-paper opacity-100"
+                      : "opacity-40 hover:opacity-75",
                   )}
-                />
+                >
+                  <Image src={src} alt="" fill sizes="64px" className="object-cover" />
+                </button>
               ))}
             </div>
-          ) : (
-            <div className="mt-5">
-              <div className="no-scrollbar flex gap-1.5 overflow-x-auto px-4">
-                {images.map((src, thumb) => (
-                  <button
-                    key={`${src}-${thumb}`}
-                    ref={(el) => {
-                      thumbRefs.current[thumb] = el;
-                    }}
-                    type="button"
-                    onClick={() => setIndex(thumb)}
-                    aria-label={`Go to photo ${thumb + 1}`}
-                    className={cn(
-                      "border-line bg-ink-2 relative aspect-[16/9] w-16 shrink-0 overflow-hidden border transition-all duration-300",
-                      thumb === index
-                        ? "border-paper opacity-100"
-                        : "opacity-40 hover:opacity-75",
-                    )}
-                  >
-                    <Image src={src} alt="" fill sizes="64px" className="object-cover" />
-                  </button>
-                ))}
-              </div>
-              <p className="text-mute mt-3 text-center font-mono text-[0.6875rem] tracking-[0.2em]">
-                {String(index + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
-              </p>
-            </div>
-          )}
+            <p className="text-mute mt-3 text-center font-mono text-[0.6875rem] tracking-[0.2em]">
+              {String(index + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
+            </p>
+          </div>
         </>
       ) : null}
     </div>
