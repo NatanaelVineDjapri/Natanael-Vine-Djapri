@@ -108,6 +108,14 @@
     transform: scaleX(1);
     transform-origin: left;
   }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @utility text-balance-pretty {

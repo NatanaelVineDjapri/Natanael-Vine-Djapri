@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import CoverPlaceholder from "./CoverPlaceholder";
 
@@ -27,6 +27,7 @@ export default function ProjectGallery({
   const [slide, setSlide] = useState(SLIDE_WIDE);
   const hasMultiple = images.length > 1;
   const length = images.length;
+  const thumbRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
   useEffect(() => {
     const query = window.matchMedia("(min-width: 768px)");
@@ -35,6 +36,16 @@ export default function ProjectGallery({
     query.addEventListener("change", apply);
     return () => query.removeEventListener("change", apply);
   }, []);
+
+  // Keep the active thumbnail scrolled into view when the slide changes,
+  // whether that came from clicking a thumbnail or the prev/next arrows.
+  useEffect(() => {
+    thumbRefs.current[index]?.scrollIntoView({
+      behavior: "smooth",
+      inline: "center",
+      block: "nearest",
+    });
+  }, [index]);
 
   if (length === 0) {
     return (
@@ -86,7 +97,7 @@ export default function ProjectGallery({
                   fill
                   priority={position === displayIndex}
                   sizes="(min-width: 768px) 60vw, 86vw"
-                  className="object-cover"
+                  className="object-contain"
                 />
               </div>
             );
@@ -138,9 +149,32 @@ export default function ProjectGallery({
               ))}
             </div>
           ) : (
-            <p className="text-mute mt-5 text-center font-mono text-[0.6875rem] tracking-[0.2em]">
-              {String(index + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
-            </p>
+            <div className="mt-5">
+              <div className="no-scrollbar flex gap-1.5 overflow-x-auto px-4">
+                {images.map((src, thumb) => (
+                  <button
+                    key={`${src}-${thumb}`}
+                    ref={(el) => {
+                      thumbRefs.current[thumb] = el;
+                    }}
+                    type="button"
+                    onClick={() => setIndex(thumb)}
+                    aria-label={`Go to photo ${thumb + 1}`}
+                    className={cn(
+                      "border-line bg-ink-2 relative aspect-[16/9] w-16 shrink-0 overflow-hidden border transition-all duration-300",
+                      thumb === index
+                        ? "border-paper opacity-100"
+                        : "opacity-40 hover:opacity-75",
+                    )}
+                  >
+                    <Image src={src} alt="" fill sizes="64px" className="object-cover" />
+                  </button>
+                ))}
+              </div>
+              <p className="text-mute mt-3 text-center font-mono text-[0.6875rem] tracking-[0.2em]">
+                {String(index + 1).padStart(2, "0")} / {String(images.length).padStart(2, "0")}
+              </p>
+            </div>
           )}
         </>
       ) : null}
