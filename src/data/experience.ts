@@ -42,7 +42,7 @@ export const experience: ExperienceItem[] = [
   },
   {
     id: "exp-01",
-    period: "Mar 2025 - Present",
+    period: "Mar 2025 - Sept 2026",
     role: "Student Assistant, Quality Assurance and Audit Office",
     org: "Universitas Tarumanagara",
     location: "Jakarta, Indonesia",
