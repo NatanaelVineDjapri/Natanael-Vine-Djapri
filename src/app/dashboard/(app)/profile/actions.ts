@@ -32,6 +32,7 @@ export async function updateProfile(formData: FormData) {
       location: formData.get("location"),
       timezone: formData.get("timezone"),
       email: formData.get("email"),
+      logo: formData.get("logo"),
       photo_home: formData.get("photo_home"),
       photo_lanyard: formData.get("photo_lanyard"),
       available: formData.get("available"),

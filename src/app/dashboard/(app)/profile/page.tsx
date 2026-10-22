@@ -33,6 +33,8 @@ export default async function DashboardProfilePage() {
           <Field label="URL resume/CV" name="resume_url" defaultValue={profile.resumeUrl} required />
         </div>
 
+        <ImagePathField label="Logo (navbar)" name="logo" defaultValue={profile.logo} required />
+
         <div className="grid gap-5 sm:grid-cols-2">
           <ImagePathField label="Foto — bagian Tentang" name="photo_home" defaultValue={profile.photoHome} required />
           <ImagePathField label="Foto — lanyard badge" name="photo_lanyard" defaultValue={profile.photoLanyard} required />

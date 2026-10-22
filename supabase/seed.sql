@@ -22,6 +22,7 @@ create table public.profile (
   location text not null,
   timezone text not null,
   email text not null,
+  logo text not null,
   photo_home text not null,
   photo_lanyard text not null,
   available text not null,
@@ -110,7 +111,7 @@ create policy "certifications_admin_write" on public.certifications
 
 insert into public.profile
   (id, name, first_name, last_name, initials, role, discipline, location, timezone, email,
-   photo_home, photo_lanyard, available, intro, bio, resume_url, socials)
+   logo, photo_home, photo_lanyard, available, intro, bio, resume_url, socials)
 values (
   'default',
   'Natanael Vine Djapri',
@@ -122,6 +123,7 @@ values (
   'Jakarta, Indonesia',
   'GMT+7',
   'natanaelvinedj@gmail.com',
+  '/images/logo-n.png',
   '/images/PIC2.jpeg',
   '/images/PIC2.jpeg',
   'Open To Internship & Entry Level Jobs',

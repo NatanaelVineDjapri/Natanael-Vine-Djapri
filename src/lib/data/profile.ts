@@ -12,6 +12,7 @@ type ProfileRow = {
   location: string;
   timezone: string;
   email: string;
+  logo: string;
   photo_home: string;
   photo_lanyard: string;
   available: string;
@@ -32,6 +33,7 @@ function mapProfile(row: ProfileRow): Profile {
     location: row.location,
     timezone: row.timezone,
     email: row.email,
+    logo: row.logo,
     photoHome: row.photo_home,
     photoLanyard: row.photo_lanyard,
     available: row.available,

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -86,8 +87,14 @@ export default function Navbar({ profile }: { profile: Profile }) {
             className="group flex items-center gap-2.5"
             onClick={() => setOpen(false)}
           >
-            <span className="bg-ink text-paper flex size-8 shrink-0 items-center justify-center rounded-full font-mono text-[0.6rem] tracking-[0.06em]">
-              {profile.initials.slice(0, 2)}
+            <span className="bg-ink relative flex size-8 shrink-0 overflow-hidden rounded-full">
+              <Image
+                src={profile.logo}
+                alt=""
+                fill
+                unoptimized
+                className="scale-150 object-cover"
+              />
             </span>
             <span className="font-display text-ink hidden text-lg leading-none sm:inline">
               {profile.firstName}
