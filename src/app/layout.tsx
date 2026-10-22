@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { getProfile } from "@/lib/data/profile";
 import "./globals.css";
 
@@ -63,7 +64,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${sans.variable} ${mono.variable} ${display.variable}`}
       suppressHydrationWarning
     >
-      <body className="bg-ink text-paper min-h-dvh">{children}</body>
+      <body className="bg-ink text-paper min-h-dvh">
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
