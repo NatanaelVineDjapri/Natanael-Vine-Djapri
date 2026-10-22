@@ -6,10 +6,13 @@ import { createClient } from "@/lib/supabase/client";
 const BUCKET = "images";
 
 type FileStatus = {
+  id: number;
   name: string;
   status: "uploading" | "done" | "error";
   message?: string;
 };
+
+let nextId = 0;
 
 function sanitize(filename: string) {
   return filename.replace(/[^a-zA-Z0-9.\-_]/g, "-");
@@ -47,23 +50,34 @@ export default function ImageDropzone({
 
   async function handleFiles(fileList: FileList | null) {
     if (!fileList || fileList.length === 0) return;
-    const list = Array.from(fileList);
+    const entries = Array.from(fileList).map((file) => ({ id: nextId++, file }));
 
-    setFiles((prev) => [...prev, ...list.map((f) => ({ name: f.name, status: "uploading" as const }))]);
+    setFiles((prev) => [
+      ...prev,
+      ...entries.map(({ id, file }) => ({ id, name: file.name, status: "uploading" as const })),
+    ]);
 
-    const results = await Promise.allSettled(list.map(uploadOne));
+    const results = await Promise.allSettled(entries.map(({ file }) => uploadOne(file)));
+
+    // Derive the successful URLs straight from `results` — never from inside
+    // a setState updater, since React doesn't guarantee that callback runs
+    // before the next line (it previously ran async/after this check, so
+    // onUploaded fired with an empty array and the field never got filled).
     const urls: string[] = [];
+    const statusById = new Map<number, Pick<FileStatus, "status" | "message">>();
+    results.forEach((result, i) => {
+      if (result.status === "fulfilled") {
+        urls.push(result.value);
+        statusById.set(entries[i].id, { status: "done" });
+      } else {
+        statusById.set(entries[i].id, { status: "error", message: result.reason?.message });
+      }
+    });
 
     setFiles((prev) =>
       prev.map((entry) => {
-        const index = list.findIndex((f) => f.name === entry.name);
-        if (index === -1 || entry.status !== "uploading") return entry;
-        const result = results[index];
-        if (result.status === "fulfilled") {
-          urls.push(result.value);
-          return { ...entry, status: "done" as const };
-        }
-        return { ...entry, status: "error" as const, message: result.reason?.message };
+        const update = statusById.get(entry.id);
+        return update ? { ...entry, ...update } : entry;
       }),
     );
 
@@ -107,8 +121,8 @@ export default function ImageDropzone({
 
       {files.length > 0 ? (
         <ul className="mt-2 space-y-1">
-          {files.map((file, i) => (
-            <li key={i} className="flex items-center gap-2 font-mono text-xs">
+          {files.map((file) => (
+            <li key={file.id} className="flex items-center gap-2 font-mono text-xs">
               <span
                 className={
                   file.status === "done"
