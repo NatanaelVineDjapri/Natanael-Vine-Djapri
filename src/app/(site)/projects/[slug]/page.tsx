@@ -6,9 +6,12 @@ import TechBadge from "@/components/ui/TechBadge";
 import ProjectGallery from "@/components/ui/ProjectGallery";
 import TextReveal from "@/components/motion/TextReveal";
 import Reveal from "@/components/motion/Reveal";
-import { getProject, projects } from "@/data/projects";
+import { getProject, getProjects } from "@/lib/data/projects";
 
-export function generateStaticParams() {
+export const revalidate = 60;
+
+export async function generateStaticParams() {
+  const projects = await getProjects();
   return projects.map((project) => ({ slug: project.slug }));
 }
 
@@ -16,7 +19,7 @@ export async function generateMetadata(
   props: PageProps<"/projects/[slug]">,
 ): Promise<Metadata> {
   const { slug } = await props.params;
-  const project = getProject(slug);
+  const project = await getProject(slug);
   if (!project) return { title: "Project not found" };
 
   return {
@@ -29,7 +32,7 @@ export default async function ProjectDetailPage(
   props: PageProps<"/projects/[slug]">,
 ) {
   const { slug } = await props.params;
-  const project = getProject(slug);
+  const [project, projects] = await Promise.all([getProject(slug), getProjects()]);
 
   if (!project) notFound();
 

@@ -5,10 +5,10 @@ import { useState } from "react";
 import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/motion/Reveal";
-import { projects } from "@/data/projects";
 import { cn } from "@/lib/utils";
+import type { Project } from "@/types";
 
-export default function FeaturedProjects() {
+export default function FeaturedProjects({ projects }: { projects: Project[] }) {
   const [hovered, setHovered] = useState<string | null>(null);
 
   return (

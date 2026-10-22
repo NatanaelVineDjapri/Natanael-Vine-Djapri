@@ -5,9 +5,9 @@ import { motion, useScroll, useSpring } from "motion/react";
 import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/motion/Reveal";
-import { experience } from "@/data/experience";
+import type { ExperienceItem } from "@/types";
 
-export default function Experience() {
+export default function Experience({ experience }: { experience: ExperienceItem[] }) {
   const track = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: track,

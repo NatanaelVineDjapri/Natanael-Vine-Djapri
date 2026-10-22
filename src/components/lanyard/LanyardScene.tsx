@@ -25,7 +25,13 @@ function CameraRig() {
  * loop and WebGL redraw keep running at full rate for the whole page, which
  * shows up as scroll jank far below the hero.
  */
-export default function LanyardScene({ active = true }: { active?: boolean }) {
+export default function LanyardScene({
+  active = true,
+  photoUrl,
+}: {
+  active?: boolean;
+  photoUrl: string;
+}) {
   return (
     <Canvas
       frameloop={active ? "always" : "never"}
@@ -40,7 +46,7 @@ export default function LanyardScene({ active = true }: { active?: boolean }) {
       <ambientLight intensity={Math.PI * 0.6} />
       <Suspense fallback={null}>
         <Physics interpolate gravity={[0, -40, 0]} timeStep={1 / 60}>
-          <Band />
+          <Band photoUrl={photoUrl} />
         </Physics>
       </Suspense>
       <Environment blur={0.75}>

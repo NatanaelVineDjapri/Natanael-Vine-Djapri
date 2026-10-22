@@ -1,9 +1,11 @@
 import Container from "@/components/layout/Container";
 import TextReveal from "@/components/motion/TextReveal";
 import Reveal from "@/components/motion/Reveal";
-import { profile } from "@/data/profile";
+import { getProfile } from "@/lib/data/profile";
 
-export default function Contact() {
+export default async function Contact() {
+  const profile = await getProfile();
+
   return (
     <section id="kontak" className="border-line/60 border-t py-28 md:py-40">
       <Container>

@@ -30,7 +30,7 @@ function Placeholder() {
   );
 }
 
-export default function Lanyard() {
+export default function Lanyard({ photoUrl }: { photoUrl: string }) {
   const ref = useRef<HTMLDivElement>(null);
   // Latched: once the scene has been paid for, keep it mounted.
   const [mounted, setMounted] = useState(false);
@@ -66,7 +66,7 @@ export default function Lanyard() {
 
   return (
     <div ref={ref} className="h-[680px] w-full" aria-hidden="true">
-      {mounted ? <LanyardScene active={onScreen} /> : <Placeholder />}
+      {mounted ? <LanyardScene active={onScreen} photoUrl={photoUrl} /> : <Placeholder />}
     </div>
   );
 }

@@ -51,7 +51,15 @@ const segmentProps = {
   linearDamping: 4,
 };
 
-export default function Band({ maxSpeed = 50, minSpeed = 10 }) {
+export default function Band({
+  photoUrl,
+  maxSpeed = 50,
+  minSpeed = 10,
+}: {
+  photoUrl: string;
+  maxSpeed?: number;
+  minSpeed?: number;
+}) {
   const band = useRef<THREE.Mesh>(null);
   const fixed = useRef<RapierRigidBody>(null!);
   const j1 = useRef<RapierRigidBody>(null!);
@@ -80,7 +88,7 @@ export default function Band({ maxSpeed = 50, minSpeed = 10 }) {
     // drawn without its images.
     Promise.all([
       document.fonts?.ready ?? Promise.resolve(null),
-      loadPortrait(),
+      loadPortrait(photoUrl),
       loadCardBackImage(),
     ]).then(([, photo, cardBack]) => {
       if (cancelled) return;
@@ -93,7 +101,7 @@ export default function Band({ maxSpeed = 50, minSpeed = 10 }) {
     return () => {
       cancelled = true;
     };
-  }, [cardArt, strapArt]);
+  }, [cardArt, strapArt, photoUrl]);
 
   useEffect(() => {
     const { texture } = strapArt;

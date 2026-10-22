@@ -1,7 +1,9 @@
 import Container from "./Container";
-import { profile } from "@/data/profile";
+import { getProfile } from "@/lib/data/profile";
 
-export default function Footer() {
+export default async function Footer() {
+  const profile = await getProfile();
+
   return (
     <footer className="border-line/60 border-t">
       <Container className="py-10">

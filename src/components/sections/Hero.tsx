@@ -2,9 +2,11 @@ import Container from "@/components/layout/Container";
 import TextReveal from "@/components/motion/TextReveal";
 import Reveal from "@/components/motion/Reveal";
 import Lanyard from "@/components/lanyard/Lanyard";
-import { profile } from "@/data/profile";
+import { getProfile } from "@/lib/data/profile";
 
-export default function Hero() {
+export default async function Hero() {
+  const profile = await getProfile();
+
   return (
     <section
       id="beranda"
@@ -47,7 +49,7 @@ export default function Hero() {
 
           {/* Draggable badge, desktop only */}
           <div className="relative hidden lg:col-span-5 lg:block">
-            <Lanyard />
+            <Lanyard photoUrl={profile.photoLanyard} />
             {/* <Reveal delay={0.5}>
               <p className="text-mute pointer-events-none -mt-6 text-center font-mono text-[0.625rem] tracking-[0.22em] uppercase">
                 Tarik kartunya

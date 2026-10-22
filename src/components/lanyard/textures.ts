@@ -1,6 +1,5 @@
 import * as THREE from "three";
 import { cssFontStack } from "@/lib/utils";
-import { profile } from "@/data/profile";
 
 /**
  * The GLB from fattahmaulana/3D_CARD ships a baked texture atlas showing the
@@ -326,8 +325,8 @@ function loadImage(src: string): Promise<HTMLImageElement | null> {
 }
 
 /** Loads the badge portrait. Resolves to null if it cannot be fetched. */
-export function loadPortrait(): Promise<HTMLImageElement | null> {
-  return loadImage(profile.photoLanyard);
+export function loadPortrait(photoUrl: string): Promise<HTMLImageElement | null> {
+  return loadImage(photoUrl);
 }
 
 /**

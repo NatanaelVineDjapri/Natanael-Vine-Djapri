@@ -1,4 +1,4 @@
-import { profile } from "@/data/profile";
+import { getProfile } from "@/lib/data/profile";
 
 /**
  * Fixed vertical rail of social links along the right edge, desktop only —
@@ -6,7 +6,9 @@ import { profile } from "@/data/profile";
  * run bottom-to-top, the common reading direction for this kind of side rail,
  * with a hairline stem anchoring the stack to the page edge.
  */
-export default function SocialRail() {
+export default async function SocialRail() {
+  const profile = await getProfile();
+
   return (
     <aside className="pointer-events-none fixed inset-y-0 right-5 z-40 hidden lg:flex xl:right-8">
       <div className="pointer-events-auto m-auto flex flex-col items-center gap-8">

@@ -7,7 +7,6 @@ import Container from "@/components/layout/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/motion/Reveal";
 import CoverPlaceholder from "@/components/ui/CoverPlaceholder";
-import { certifications } from "@/data/certifications";
 import type { Certification } from "@/types";
 
 const GROUP_ORDER = ["Learning", "Volunteering", "Award"];
@@ -101,7 +100,11 @@ function CertificationCard({
   );
 }
 
-export default function Certifications() {
+export default function Certifications({
+  certifications,
+}: {
+  certifications: Certification[];
+}) {
   const [openId, setOpenId] = useState<string | null>(null);
   const active = certifications.find((item) => item.id === openId) ?? null;
 

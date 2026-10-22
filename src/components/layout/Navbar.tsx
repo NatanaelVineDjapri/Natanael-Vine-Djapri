@@ -7,10 +7,10 @@ import { AnimatePresence, motion } from "motion/react";
 import { useLenis } from "lenis/react";
 import Container from "./Container";
 import { navItems } from "@/data/site";
-import { profile } from "@/data/profile";
 import { cn } from "@/lib/utils";
+import type { Profile } from "@/types";
 
-export default function Navbar() {
+export default function Navbar({ profile }: { profile: Profile }) {
   const pathname = usePathname();
   const onHome = pathname === "/";
 

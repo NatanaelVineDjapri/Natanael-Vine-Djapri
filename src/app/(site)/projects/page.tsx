@@ -3,7 +3,7 @@ import Container from "@/components/layout/Container";
 import ProjectCard from "@/components/ui/ProjectCard";
 import TextReveal from "@/components/motion/TextReveal";
 import Reveal from "@/components/motion/Reveal";
-import { projects } from "@/data/projects";
+import { getProjects } from "@/lib/data/projects";
 
 export const metadata: Metadata = {
   title: "Project Archive",
@@ -11,7 +11,11 @@ export const metadata: Metadata = {
     "A collection of interface engineering and digital product projects by Natanael Vine Djapri.",
 };
 
-export default function ProjectsPage() {
+export const revalidate = 60;
+
+export default async function ProjectsPage() {
+  const projects = await getProjects();
+
   return (
     <div className="pt-[72px]">
       <Container className="py-24 md:py-32">

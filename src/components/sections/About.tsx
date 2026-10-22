@@ -4,10 +4,12 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import Reveal from "@/components/motion/Reveal";
 import Parallax from "@/components/motion/Parallax";
 import CountUp from "@/components/motion/CountUp";
-import { profile } from "@/data/profile";
+import { getProfile } from "@/lib/data/profile";
 import { stats } from "@/data/site";
 
-export default function About() {
+export default async function About() {
+  const profile = await getProfile();
+
   return (
     <section id="tentang" className="py-28 md:py-40">
       <Container>
